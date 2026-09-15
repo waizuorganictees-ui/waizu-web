@@ -867,11 +867,11 @@
 
   <!-- ================= AVISO DE ENVÍO (toast) ================= -->
   <sc-if value="{{ toastVisible }}" hint-placeholder-val="{{ false }}">
-    <div style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;pointer-events:none;">
-      <div style="position:relative;pointer-events:auto;max-width:380px;background:var(--surface);border:1.5px solid {{ toastAccent }};border-radius:var(--r-lg);box-shadow:var(--shadow);padding:20px 24px;display:flex;align-items:center;gap:14px;">
-        <span style="flex:0 0 auto;width:30px;height:30px;border-radius:var(--r-pill);background:{{ toastAccent }};color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:16px;">{{ toastIcon }}</span>
-        <div style="font-family:var(--font-sans);font-size:15px;line-height:1.5;color:var(--ink);font-weight:500;">{{ toastMessage }}</div>
-        <div style="position:absolute;left:50%;bottom:-9px;width:16px;height:16px;background:var(--surface);border-right:1.5px solid {{ toastAccent }};border-bottom:1.5px solid {{ toastAccent }};transform:translateX(-50%) rotate(45deg);"></div>
+    <div sc-camel-on-click="{{ closeToast }}" style="position:fixed;inset:0;z-index:9999;background:rgba(42,37,32,.6);display:flex;align-items:center;justify-content:center;padding:20px;">
+      <div sc-camel-on-click="{{ stopToastClick }}" style="max-width:380px;width:100%;background:var(--surface);border:1.5px solid {{ toastAccent }};border-radius:var(--r-lg);box-shadow:var(--shadow);padding:28px 26px 24px;text-align:center;">
+        <span style="display:flex;width:44px;height:44px;margin:0 auto 16px;border-radius:var(--r-pill);background:{{ toastAccent }};color:#fff;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:20px;">{{ toastIcon }}</span>
+        <div style="font-family:var(--font-sans);font-size:16px;line-height:1.5;color:var(--ink);font-weight:500;margin-bottom:22px;">{{ toastMessage }}</div>
+        <button sc-camel-on-click="{{ closeToast }}" style="padding:12px 40px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Vale</button>
       </div>
     </div>
   </sc-if>
@@ -965,13 +965,19 @@ class Component extends DCLogic {
 
   componentDidMount() {
     this._ensureThumbnail();
+    this._lastView = this.state.view;
     this._onResize = () => this._syncCompact();
     window.addEventListener('resize', this._onResize);
     this._syncCompact();
     this.observeFades();
   }
-  componentDidUpdate(prevProps, prevState) {
-    const prevView = prevState && prevState.view;
+  componentDidUpdate(prevProps) {
+    /* The runtime's componentDidUpdate doesn't forward prevState, so we
+       track the last-seen view ourselves — comparing against `undefined`
+       every time would scroll to top on every unrelated setState (toast,
+       FAQ toggle, qty stepper…), not just real navigation. */
+    const prevView = this._lastView;
+    this._lastView = this.state.view;
     if (prevView !== this.state.view) {
       try { window.scrollTo(0, 0); } catch (e) {}
       this.observeFades();
@@ -1333,9 +1339,10 @@ class Component extends DCLogic {
   go(view){ this.setState({ view, mobileMenuOpen:false }); }
 
   showToast(message, isError){
-    if (this._toastTimer) clearTimeout(this._toastTimer);
     this.setState({ toast: { message, error: !!isError } });
-    this._toastTimer = setTimeout(() => this.setState({ toast: null }), 4000);
+  }
+  closeToast(){
+    this.setState({ toast: null });
   }
 
   submitForm(e, subject){
@@ -1573,6 +1580,8 @@ class Component extends DCLogic {
       toastMessage: s.toast ? s.toast.message : '',
       toastAccent: (s.toast && s.toast.error) ? 'var(--primary-dark)' : 'var(--primary)',
       toastIcon: (s.toast && s.toast.error) ? '!' : '✓',
+      closeToast: () => this.closeToast(),
+      stopToastClick: (e) => e.stopPropagation(),
 
       // ===== Colegios y eventos =====
       colegiosStats: [
