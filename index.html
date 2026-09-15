@@ -695,18 +695,15 @@
           </sc-for>
         </div>
         <!-- Formulario presupuesto -->
-        <form action="https://formsubmit.co/waizuorganictees@gmail.com" method="POST" style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(24px,4vw,48px);max-width:760px;margin:0 auto;box-shadow:var(--shadow);">
+        <form sc-camel-on-submit="{{ submitPresupuesto }}" style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(24px,4vw,48px);max-width:760px;margin:0 auto;box-shadow:var(--shadow);">
           <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3.5vw,34px);margin:0 0 6px;letter-spacing:-.015em;">Pide presupuesto</h2>
           <p style="font-size:15px;color:var(--ink-70);margin:0 0 28px;">Cuéntanos los detalles y te respondemos en 24–48 h.</p>
-          <input type="hidden" name="_subject" value="Nueva solicitud de presupuesto — Waizu">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://waizuorganictees-ui.github.io/waizu-web/">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;">
             <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Nombre de contacto</label><input name="nombre" required placeholder="Tu nombre" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
             <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Organización / colegio</label><input name="organizacion" placeholder="AMPA, peña, empresa…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
             <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Email</label><input type="email" name="email" required placeholder="tu@email.com" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
-            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Nº de unidades aprox.</label><input name="unidades" placeholder="Ej. 80" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Teléfono de contacto</label><input type="tel" name="telefono" placeholder="+34 600 00 00 00" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
           </div>
           <div style="margin-top:18px;"><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Cuéntanos tu proyecto</label><textarea name="mensaje" rows="4" placeholder="Tipo de evento, fechas, diseño aproximado, tallas…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;resize:vertical;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></textarea></div>
           <button type="submit" style="margin-top:24px;padding:15px 32px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Pide presupuesto</button>
@@ -816,16 +813,14 @@
             </button>
           </div>
           <!-- Formulario -->
-          <form action="https://formsubmit.co/waizuorganictees@gmail.com" method="POST" style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(24px,4vw,40px);box-shadow:var(--shadow);">
+          <form sc-camel-on-submit="{{ submitContacto }}" style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(24px,4vw,40px);box-shadow:var(--shadow);">
             <div style="font-family:var(--font-display);font-weight:600;font-size:22px;margin-bottom:6px;">Envíanos un mensaje</div>
             <p style="font-size:14px;color:var(--ink-55);margin:0 0 24px;font-family:var(--font-mono);">Te respondemos pronto</p>
-            <input type="hidden" name="_subject" value="Nuevo mensaje de contacto — Waizu">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://waizuorganictees-ui.github.io/waizu-web/">
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
             <div style="display:flex;flex-direction:column;gap:18px;">
               <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Nombre</label><input name="nombre" required placeholder="Tu nombre" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
               <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Email</label><input type="email" name="email" required placeholder="tu@email.com" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+              <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Teléfono de contacto</label><input type="tel" name="telefono" placeholder="+34 600 00 00 00" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
               <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Mensaje</label><textarea name="mensaje" required rows="5" placeholder="Cuéntanos…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;resize:vertical;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></textarea></div>
               <button type="submit" style="padding:15px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Enviar mensaje</button>
             </div>
@@ -869,6 +864,17 @@
     <svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="#0b3d1f" style="flex:0 0 auto;"><path d="M12 2a10 10 0 0 0-8.6 15l-1 4 4.1-1A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.4.6.6-2.3-.2-.3A8 8 0 1 1 12 20z"></path></svg>
     <sc-if value="{{ fabWide }}" hint-placeholder-val="{{ false }}"><span>Consultar por WhatsApp</span></sc-if>
   </button>
+
+  <!-- ================= AVISO DE ENVÍO (toast) ================= -->
+  <sc-if value="{{ toastVisible }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;pointer-events:none;">
+      <div style="position:relative;pointer-events:auto;max-width:380px;background:var(--surface);border:1.5px solid {{ toastAccent }};border-radius:var(--r-lg);box-shadow:var(--shadow);padding:20px 24px;display:flex;align-items:center;gap:14px;">
+        <span style="flex:0 0 auto;width:30px;height:30px;border-radius:var(--r-pill);background:{{ toastAccent }};color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:16px;">{{ toastIcon }}</span>
+        <div style="font-family:var(--font-sans);font-size:15px;line-height:1.5;color:var(--ink);font-weight:500;">{{ toastMessage }}</div>
+        <div style="position:absolute;left:50%;bottom:-9px;width:16px;height:16px;background:var(--surface);border-right:1.5px solid {{ toastAccent }};border-bottom:1.5px solid {{ toastAccent }};transform:translateX(-50%) rotate(45deg);"></div>
+      </div>
+    </div>
+  </sc-if>
 
   <!-- asset manifest: static refs so every catalogue photo is discoverable at build time -->
   <div aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;opacity:0;pointer-events:none;">
@@ -938,6 +944,7 @@ class Component extends DCLogic {
     isCompact: (typeof window !== 'undefined' && window.innerWidth < 1024),
     mobileMenuOpen: false,
     isShort: (typeof window !== 'undefined' && window.innerHeight < 700),
+    toast: null,
   };
 
   THUMB_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400"><rect width="400" height="400" fill="#F4EFE6"></rect><rect x="120" y="120" width="160" height="160" rx="24" fill="#E8642C"></rect><text x="200" y="212" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="76" fill="#FBF9F5">W</text><circle cx="252" cy="152" r="11" fill="#FBF9F5"></circle></svg>';
@@ -1325,6 +1332,36 @@ class Component extends DCLogic {
   goLegal(doc){ this.setState({ view:'legal', legalDoc:doc, profileMenuOpen:false, mobileMenuOpen:false }); try{window.scrollTo(0,0);}catch(e){} }
   go(view){ this.setState({ view, mobileMenuOpen:false }); }
 
+  showToast(message, isError){
+    if (this._toastTimer) clearTimeout(this._toastTimer);
+    this.setState({ toast: { message, error: !!isError } });
+    this._toastTimer = setTimeout(() => this.setState({ toast: null }), 4000);
+  }
+
+  submitForm(e, subject){
+    e.preventDefault();
+    const form = e.target;
+    const fd = new FormData(form);
+    if (fd.get('_honey')) return;
+    const data = {};
+    fd.forEach((v, k) => { if (k !== '_honey') data[k] = v; });
+    data._subject = subject;
+    data._template = 'table';
+    fetch('https://formsubmit.co/ajax/waizuorganictees@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data),
+    })
+      .then(r => { if (!r.ok) throw new Error('bad response'); return r.json(); })
+      .then(() => {
+        form.reset();
+        this.showToast('¡Gracias! Hemos recibido tu mensaje, te responderemos pronto.');
+      })
+      .catch(() => {
+        this.showToast('No se pudo enviar. Escríbenos por WhatsApp o inténtalo de nuevo.', true);
+      });
+  }
+
 
   renderVals() {
     const s = this.state;
@@ -1528,6 +1565,14 @@ class Component extends DCLogic {
       pdRelated: this.products.filter(p=>p.id!==s.selectedProduct).slice(0,3).map(p=>({ ...p, priceStr:this.fmt(p.price), onOpen:()=>{ this.setState({view:'producto',selectedProduct:p.id}); try{window.scrollTo(0,0);}catch(e){} } })),
 
       goColegios: ()=>this.go('colegios'),
+
+      // ===== Formularios (presupuesto / contacto) =====
+      submitPresupuesto: (e) => this.submitForm(e, 'Nueva solicitud de presupuesto — Waizu'),
+      submitContacto: (e) => this.submitForm(e, 'Nuevo mensaje de contacto — Waizu'),
+      toastVisible: !!s.toast,
+      toastMessage: s.toast ? s.toast.message : '',
+      toastAccent: (s.toast && s.toast.error) ? 'var(--primary-dark)' : 'var(--primary)',
+      toastIcon: (s.toast && s.toast.error) ? '!' : '✓',
 
       // ===== Colegios y eventos =====
       colegiosStats: [
