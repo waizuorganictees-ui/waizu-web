@@ -695,18 +695,22 @@
           </sc-for>
         </div>
         <!-- Formulario presupuesto -->
-        <div style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(24px,4vw,48px);max-width:760px;margin:0 auto;box-shadow:var(--shadow);">
+        <form action="https://formsubmit.co/waizuorganictees@gmail.com" method="POST" style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(24px,4vw,48px);max-width:760px;margin:0 auto;box-shadow:var(--shadow);">
           <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3.5vw,34px);margin:0 0 6px;letter-spacing:-.015em;">Pide presupuesto</h2>
-          <p style="font-size:15px;color:var(--ink-70);margin:0 0 28px;">Cuéntanos los detalles y te respondemos en 24–48 h. <span style="font-family:var(--font-mono);font-size:13px;color:var(--ink-55);">(campos de ejemplo)</span></p>
+          <p style="font-size:15px;color:var(--ink-70);margin:0 0 28px;">Cuéntanos los detalles y te respondemos en 24–48 h.</p>
+          <input type="hidden" name="_subject" value="Nueva solicitud de presupuesto — Waizu">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://waizuorganictees-ui.github.io/waizu-web/">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;">
-            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Nombre de contacto</label><input placeholder="Tu nombre" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
-            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Organización / colegio</label><input placeholder="AMPA, peña, empresa…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
-            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Email</label><input type="email" placeholder="tu@email.com" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
-            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Nº de unidades aprox.</label><input placeholder="Ej. 80" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Nombre de contacto</label><input name="nombre" required placeholder="Tu nombre" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Organización / colegio</label><input name="organizacion" placeholder="AMPA, peña, empresa…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Email</label><input type="email" name="email" required placeholder="tu@email.com" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Nº de unidades aprox.</label><input name="unidades" placeholder="Ej. 80" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
           </div>
-          <div style="margin-top:18px;"><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Cuéntanos tu proyecto</label><textarea rows="4" placeholder="Tipo de evento, fechas, diseño aproximado, tallas…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;resize:vertical;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></textarea></div>
-          <button style="margin-top:24px;padding:15px 32px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Pide presupuesto</button>
-        </div>
+          <div style="margin-top:18px;"><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Cuéntanos tu proyecto</label><textarea name="mensaje" rows="4" placeholder="Tipo de evento, fechas, diseño aproximado, tallas…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;resize:vertical;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></textarea></div>
+          <button type="submit" style="margin-top:24px;padding:15px 32px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Pide presupuesto</button>
+        </form>
       </section></sc-if>
     <sc-if value="{{ isComo }}" hint-placeholder-val="{{ false }}"><section style="max-width:var(--maxw);margin:0 auto;padding:clamp(40px,6vw,80px) clamp(16px,4vw,40px) clamp(48px,7vw,96px);">
         <div style="max-width:620px;margin:0 auto 56px;text-align:center;">
@@ -812,16 +816,20 @@
             </button>
           </div>
           <!-- Formulario -->
-          <div style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(24px,4vw,40px);box-shadow:var(--shadow);">
+          <form action="https://formsubmit.co/waizuorganictees@gmail.com" method="POST" style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(24px,4vw,40px);box-shadow:var(--shadow);">
             <div style="font-family:var(--font-display);font-weight:600;font-size:22px;margin-bottom:6px;">Envíanos un mensaje</div>
-            <p style="font-size:14px;color:var(--ink-55);margin:0 0 24px;font-family:var(--font-mono);">(formulario maquetado)</p>
+            <p style="font-size:14px;color:var(--ink-55);margin:0 0 24px;font-family:var(--font-mono);">Te respondemos pronto</p>
+            <input type="hidden" name="_subject" value="Nuevo mensaje de contacto — Waizu">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://waizuorganictees-ui.github.io/waizu-web/">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
             <div style="display:flex;flex-direction:column;gap:18px;">
-              <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Nombre</label><input placeholder="Tu nombre" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
-              <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Email</label><input type="email" placeholder="tu@email.com" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
-              <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Mensaje</label><textarea rows="5" placeholder="Cuéntanos…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;resize:vertical;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></textarea></div>
-              <button style="padding:15px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Enviar mensaje</button>
+              <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Nombre</label><input name="nombre" required placeholder="Tu nombre" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+              <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Email</label><input type="email" name="email" required placeholder="tu@email.com" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+              <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Mensaje</label><textarea name="mensaje" required rows="5" placeholder="Cuéntanos…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;resize:vertical;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></textarea></div>
+              <button type="submit" style="padding:15px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Enviar mensaje</button>
             </div>
-          </div>
+          </form>
         </div>
       </section></sc-if>
   </main>
