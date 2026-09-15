@@ -1485,7 +1485,10 @@ class Component extends DCLogic {
       instaTiles: Array.from({length:6}, (_,i)=>({ label:'@waizuorganictees · post '+(i+1) })),
 
       // whatsapp
-      openWhatsapp: () => {},
+      openWhatsapp: () => {
+        const message = 'Hola, me gustaría más información sobre Waizu.';
+        window.open('https://wa.me/34614153385?text=' + encodeURIComponent(message), '_blank', 'noopener');
+      },
 
       // footer
       footerShop: [
