@@ -9,8 +9,6 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com">
 <style>/* vietnamese */
 @font-face {
   font-family: 'Fraunces';
@@ -700,12 +698,16 @@
           <p style="font-size:15px;color:var(--ink-70);margin:0 0 28px;">Cuéntanos los detalles y te respondemos en 24–48 h.</p>
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;">
-            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Nombre de contacto</label><input name="nombre" required placeholder="Tu nombre" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
-            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Organización / colegio</label><input name="organizacion" placeholder="AMPA, peña, empresa…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
-            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Email</label><input type="email" name="email" required placeholder="tu@email.com" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
-            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Teléfono de contacto</label><input type="tel" name="telefono" placeholder="+34 600 00 00 00" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Nombre de contacto</label><input name="nombre" required="{{ isRequired }}" maxlength="100" placeholder="Tu nombre" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Organización / colegio</label><input name="organizacion" maxlength="150" placeholder="AMPA, peña, empresa…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Email</label><input type="email" name="email" required="{{ isRequired }}" maxlength="254" placeholder="tu@email.com" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Teléfono de contacto</label><input type="tel" name="telefono" maxlength="30" placeholder="+34 600 00 00 00" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
           </div>
-          <div style="margin-top:18px;"><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Cuéntanos tu proyecto</label><textarea name="mensaje" rows="4" placeholder="Tipo de evento, fechas, diseño aproximado, tallas…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;resize:vertical;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></textarea></div>
+          <div style="margin-top:18px;"><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Cuéntanos tu proyecto</label><textarea name="mensaje" maxlength="2000" rows="4" placeholder="Tipo de evento, fechas, diseño aproximado, tallas…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;resize:vertical;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></textarea></div>
+          <label style="display:flex;gap:10px;align-items:flex-start;margin-top:20px;font-family:var(--font-sans);font-size:13px;line-height:1.5;color:var(--ink-70);cursor:pointer;">
+            <input type="checkbox" name="privacidad" required="{{ isRequired }}" style="margin-top:3px;flex:0 0 auto;width:16px;height:16px;accent-color:var(--primary);cursor:pointer;">
+            <span>He leído y acepto la <a href="#privacidad" target="_blank" rel="noopener" style="color:var(--primary-dark);text-decoration:underline;">política de privacidad</a>. Waizu usará mis datos solo para responder a esta solicitud; el mensaje se envía mediante el servicio FormSubmit.</span>
+          </label>
           <button type="submit" style="margin-top:24px;padding:15px 32px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Pide presupuesto</button>
         </form>
       </section></sc-if>
@@ -818,10 +820,14 @@
             <p style="font-size:14px;color:var(--ink-55);margin:0 0 24px;font-family:var(--font-mono);">Te respondemos pronto</p>
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
             <div style="display:flex;flex-direction:column;gap:18px;">
-              <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Nombre</label><input name="nombre" required placeholder="Tu nombre" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
-              <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Email</label><input type="email" name="email" required placeholder="tu@email.com" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
-              <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Teléfono de contacto</label><input type="tel" name="telefono" placeholder="+34 600 00 00 00" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
-              <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Mensaje</label><textarea name="mensaje" required rows="5" placeholder="Cuéntanos…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;resize:vertical;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></textarea></div>
+              <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Nombre</label><input name="nombre" required="{{ isRequired }}" maxlength="100" placeholder="Tu nombre" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+              <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Email</label><input type="email" name="email" required="{{ isRequired }}" maxlength="254" placeholder="tu@email.com" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+              <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Teléfono de contacto</label><input type="tel" name="telefono" maxlength="30" placeholder="+34 600 00 00 00" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+              <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Mensaje</label><textarea name="mensaje" required="{{ isRequired }}" maxlength="2000" rows="5" placeholder="Cuéntanos…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;resize:vertical;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></textarea></div>
+              <label style="display:flex;gap:10px;align-items:flex-start;font-family:var(--font-sans);font-size:13px;line-height:1.5;color:var(--ink-70);cursor:pointer;">
+                <input type="checkbox" name="privacidad" required="{{ isRequired }}" style="margin-top:3px;flex:0 0 auto;width:16px;height:16px;accent-color:var(--primary);cursor:pointer;">
+                <span>He leído y acepto la <a href="#privacidad" target="_blank" rel="noopener" style="color:var(--primary-dark);text-decoration:underline;">política de privacidad</a>. Waizu usará mis datos solo para responder a esta solicitud; el mensaje se envía mediante el servicio FormSubmit.</span>
+              </label>
               <button type="submit" style="padding:15px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Enviar mensaje</button>
             </div>
           </form>
@@ -865,6 +871,20 @@
     <sc-if value="{{ fabWide }}" hint-placeholder-val="{{ false }}"><span>Consultar por WhatsApp</span></sc-if>
   </button>
 
+  <!-- ================= AVISO DE COOKIES ================= -->
+  <sc-if value="{{ cookieBannerVisible }}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-label="Aviso de cookies" style="position:fixed;left:0;right:0;bottom:0;z-index:9000;display:flex;justify-content:center;padding:clamp(10px,2vw,20px);pointer-events:none;">
+      <div style="pointer-events:auto;max-width:640px;width:100%;background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--r-lg);box-shadow:0 12px 40px rgba(42,37,32,.22);padding:20px 22px;display:flex;flex-direction:column;gap:14px;">
+        <div style="font-family:var(--font-display);font-weight:600;font-size:18px;color:var(--ink);">Sobre las cookies</div>
+        <p style="margin:0;font-family:var(--font-sans);font-size:14px;line-height:1.55;color:var(--ink-70);">Esta web utiliza únicamente los recursos técnicos necesarios para funcionar y no usa cookies de análisis ni de publicidad. Puedes consultar todos los detalles en la <a sc-camel-on-click="{{ cookiesInfo }}" style="color:var(--primary-dark);text-decoration:underline;cursor:pointer;">política de cookies</a>.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button sc-camel-on-click="{{ rejectCookies }}" style="flex:1 1 140px;padding:12px 20px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Rechazar</button>
+          <button sc-camel-on-click="{{ acceptCookies }}" style="flex:1 1 140px;padding:12px 20px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
   <!-- ================= AVISO DE ENVÍO (toast) ================= -->
   <sc-if value="{{ toastVisible }}" hint-placeholder-val="{{ false }}">
     <div sc-camel-on-click="{{ closeToast }}" style="position:fixed;inset:0;z-index:9999;background:rgba(42,37,32,.6);display:flex;align-items:center;justify-content:center;padding:20px;">
@@ -876,55 +896,6 @@
     </div>
   </sc-if>
 
-  <!-- asset manifest: static refs so every catalogue photo is discoverable at build time -->
-  <div aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;opacity:0;pointer-events:none;">
-    <img src="assets/3a82431c-1d82-454a-b214-c184db6aa0aa.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/67114606-fe96-451b-898d-23cc1ea3b354.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/9a25caf9-d916-4a2d-9610-505a139684a1.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/6f63c7c2-74d9-4d76-b691-b4443f610a5b.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/e9f62787-623a-4cf4-a4f6-ba34bba854d7.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/f600e7ac-5deb-4b89-bb03-fe0af0699772.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/68a1f633-84ab-499c-86e6-7094b984a317.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/6d39e82b-3f48-4503-9d9d-ddfaa31a1410.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/eb6efcb5-b10b-43c7-9046-debc0ce5b958.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/386bc70c-3187-4c61-a348-70e4e1493666.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/81427188-4570-4100-9bb9-e0ab2654235a.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/cc6f0226-3b35-43e4-9260-147650cce25f.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/6b00a460-622d-41e9-a68e-536e0ba3d363.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/1b4126ba-2197-4db6-977e-d8346112ec88.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/836b96ea-2714-4c24-8a08-80a8bc658f38.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/393e3b86-3630-448c-9e80-797cc6a6e8a8.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/7b718c15-e614-4371-bbac-69d81affce85.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/266b3031-3beb-40ce-894b-4debf84e24f2.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/1f94f036-dbfe-4bf1-a288-d63d27c31671.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/ee3320b4-4c11-4fc0-9b33-b266249994a3.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/b414e6d8-b45c-4180-bed7-be941d4ada25.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/75ad654b-308d-4ad5-9cbd-e76270c70e34.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/c2649f35-4284-4288-8b4b-ae265d036318.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/fb58c591-e213-4bcb-8cb3-3d8d41d6c417.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/d7a74f31-afbe-453a-a0b0-f4929228e8c9.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/cdb34a6d-44ce-431e-8f2a-4f0e18e74df8.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/b0640fa2-a9f7-49ef-93d2-1fa187018dfa.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/c4bac693-6476-4f5e-9d01-3e702b73e65c.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/f81645d8-3cd7-42f0-838e-bf33f72ef72d.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/0d35957d-7e09-4da2-bd35-9281e14f6633.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/c3269261-e5fd-44fc-9822-1fd04dbc004a.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/87daef2f-0786-4947-b2f1-967d7a3459db.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/03f066c0-f246-4438-90f5-4f175d7d82f5.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/a5054379-37fd-4dac-b9d2-ab36e4a361c4.jpg" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/0328dc9f-0e0a-4a02-acc1-75b565996578.png" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/a8759629-f3b2-4bf7-b376-f688f2f727bb.png" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/53e54125-d271-4a26-8ee7-4e7216e9f415.png" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/11ad6da9-f597-41a2-8344-7406ca0e66d4.png" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/86e9d366-0972-47e0-ac5e-d0e13dbac406.png" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/55011139-b318-4cd0-bf66-97aabfcdddaa.png" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/35000b48-f7e5-47c9-9d27-2cca38525657.png" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/eaac8251-83c2-4030-8b9a-9cf823e7ecf0.png" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/0e39a8c8-1640-4028-977d-5d9e29d56824.png" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/eda53397-7264-4be8-93d0-63ac124eb8b1.png" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/055f4dce-6b35-4d98-8a51-085667114c92.png" alt="" loading="lazy" width="1" height="1">
-    <img src="assets/be3ac374-493d-439f-a0f9-5046c77d1aa6.png" alt="" loading="lazy" width="1" height="1">
-  </div>
 
 </div>
 </x-dc>
@@ -945,6 +916,7 @@ class Component extends DCLogic {
     mobileMenuOpen: false,
     isShort: (typeof window !== 'undefined' && window.innerHeight < 700),
     toast: null,
+    cookieChoice: (() => { try { return window.localStorage.getItem('waizu-cookies'); } catch (e) { return null; } })(),
   };
 
   THUMB_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400"><rect width="400" height="400" fill="#F4EFE6"></rect><rect x="120" y="120" width="160" height="160" rx="24" fill="#E8642C"></rect><text x="200" y="212" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="76" fill="#FBF9F5">W</text><circle cx="252" cy="152" r="11" fill="#FBF9F5"></circle></svg>';
@@ -966,6 +938,8 @@ class Component extends DCLogic {
   componentDidMount() {
     this._ensureThumbnail();
     this._lastView = this.state.view;
+    const hashDoc = (window.location.hash || '').slice(1);
+    if (Object.prototype.hasOwnProperty.call(this.legalDocs, hashDoc)) this.setState({ view: 'legal', legalDoc: hashDoc });
     this._onResize = () => this._syncCompact();
     window.addEventListener('resize', this._onResize);
     this._syncCompact();
@@ -1341,6 +1315,10 @@ class Component extends DCLogic {
   showToast(message, isError){
     this.setState({ toast: { message, error: !!isError } });
   }
+  setCookieChoice(choice){
+    try { window.localStorage.setItem('waizu-cookies', choice); } catch (e) {}
+    this.setState({ cookieChoice: choice });
+  }
   closeToast(){
     this.setState({ toast: null });
   }
@@ -1454,7 +1432,7 @@ class Component extends DCLogic {
             { type:'Chaqueta', name:'Chaqueta softshell', desc:'Chaqueta softshell cómoda, resistente y funcional, perfecta como base para diseños personalizados. Ideal para estampar logotipos, nombres, identificaciones, escudos o diseños corporativos para empresas, equipos, clubes, asociaciones, eventos o ropa laboral. Su tejido técnico ayuda a proteger del viento y del frío ligero, manteniendo una buena comodidad en el día a día. Una prenda práctica, versátil y fácil de combinar, pensada para quienes buscan una imagen cuidada, profesional y personalizada.', sizes:'XS–XXL',
               photos:['uploads/captura-de-pantalla-2026-09-02-023242.jpg','uploads/captura-de-pantalla-2026-09-02-023257.jpg'] },
             { type:'Accesorios', name:'Accesorios personalizables', desc:'Además de la ropa, personalizamos todo tipo de accesorios y complementos. Estos son solo algunos ejemplos: libretas, auriculares, timbres de bicicleta, bolsas impermeables, gorros de natación, cepillos de dientes de bambú, baberos y riñoneras, entre muchos otros. Ideales para incorporar nombres, logotipos, frases, ilustraciones o composiciones especiales para grupos, empresas, clubes, eventos, peñas, colegios, despedidas o regalos. Personalizamos cada artículo a mano en nuestro taller de Guadalajara, eligiendo la técnica más adecuada según el material y el acabado que busques. Disponibles en distintos colores y variantes según el producto, funcionan muy bien tanto con diseños discretos como con personalizaciones más llamativas. Trabajamos con un catálogo mucho más amplio de accesorios, así que si buscas algo concreto y no aparece aquí, consúltanos igualmente: valoraremos el producto, el diseño y el acabado más adecuado para tu idea.', sizes:'Varios colores y variantes',
-              photos:['uploads/acc-b1.jpg','uploads/acc-b2.jpg','uploads/acc-b3.jpg','uploads/acc-a1.jpg','uploads/acc-a6.jpg','uploads/acc-a3.jpg','uploads/acc-a4.jpg','uploads/acc-a7.jpg'] },
+              photos:['assets/f600e7ac-5deb-4b89-bb03-fe0af0699772.jpg','assets/68a1f633-84ab-499c-86e6-7094b984a317.jpg','assets/6d39e82b-3f48-4503-9d9d-ddfaa31a1410.jpg','assets/3a82431c-1d82-454a-b214-c184db6aa0aa.jpg','assets/6f63c7c2-74d9-4d76-b691-b4443f610a5b.jpg','assets/67114606-fe96-451b-898d-23cc1ea3b354.jpg','assets/9a25caf9-d916-4a2d-9610-505a139684a1.jpg','assets/e9f62787-623a-4cf4-a4f6-ba34bba854d7.jpg'] },
             { type:'Pantalón', name:'Pantalón largo reflectante', desc:'Pantalón largo multibolsillos reflectante, unisex, cómodo y funcional, pensado para trabajos, equipos, empresas, eventos o ropa laboral. Cuenta con cierre central, cinturilla elástica en los laterales y seis bolsillos, lo que lo convierte en una prenda práctica para el uso diario. Incorpora cintas reflectantes termoselladas en el bajo del pantalón, aportando mayor visibilidad sin renunciar a un acabado cómodo y resistente. Su tejido de sarga y su composición de contraste en 80% poliéster y 20% algodón, con gramaje de 200 g/m², ofrecen una buena base para serigrafía, transfer, bordado o DTF. Disponible en diferentes tallas y colores, es una opción ideal para uniformes de trabajo, equipos técnicos, empresas de servicios o prendas corporativas con imagen profesional.', sizes:'XS–XXL',
               photos:['uploads/captura-de-pantalla-2026-09-02-222445.jpg','uploads/captura-de-pantalla-2026-09-02-222454.jpg','uploads/captura-de-pantalla-2026-09-02-222436.jpg'] },
             { type:'Pantalón', name:'Pantalón reflectante forrado', desc:'Pantalón largo reflectante multibolsillos, unisex, cómodo y resistente, pensado para trabajos, equipos, empresas, eventos o ropa laboral en entornos donde se necesita mayor visibilidad y protección frente al frío. Cuenta con cierre central, cinturilla elástica en los laterales y seis bolsillos, lo que lo convierte en una prenda práctica para el uso diario. Incorpora cintas reflectantes termoselladas en el bajo del pantalón y forro interior polar, aportando mayor abrigo sin renunciar a la comodidad. Confeccionado en tejido de sarga, con composición de contraste 80% poliéster y 20% algodón de 200 g/m², tejido flúor 80% poliéster y 20% algodón de 210 g/m², y forro interior 100% poliéster de 160 g/m². Disponible en diferentes tallas y colores, es una opción ideal para uniformes de trabajo, equipos técnicos, empresas de servicios o prendas corporativas de alta visibilidad.', sizes:'XS–XXL',
@@ -1582,6 +1560,11 @@ class Component extends DCLogic {
       toastIcon: (s.toast && s.toast.error) ? '!' : '✓',
       closeToast: () => this.closeToast(),
       stopToastClick: (e) => e.stopPropagation(),
+      isRequired: true,
+      cookieBannerVisible: !s.cookieChoice,
+      acceptCookies: () => this.setCookieChoice('accepted'),
+      rejectCookies: () => this.setCookieChoice('rejected'),
+      cookiesInfo: () => this.goLegal('cookies'),
 
       // ===== Colegios y eventos =====
       colegiosStats: [

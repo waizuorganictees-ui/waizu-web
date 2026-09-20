@@ -2,12 +2,12 @@
 
 Landing page de Waizu — ropa personalizada a mano en algodón 100% orgánico con DTF, en Guadalajara.
 
-Exportada desde el diseño hecho en [Claude Design](https://claude.ai/design) y publicada como sitio estático: `index.html` + los recursos (imágenes y fuentes) en `assets/`, sin paso de build.
+Exportada desde el diseño hecho en [Claude Design](https://claude.ai/design) y publicada como sitio estático: `index.html` + los recursos en `assets/` (imágenes y fuentes) y `uploads/` (fotos del catálogo), sin paso de build.
 
 ## Desarrollo local
 
-```bash
-node serve.js
-```
+Hay que servirlo por HTTP (abrir `index.html` directamente con `file://` no funciona):
 
-Sirve el sitio en `http://localhost:5173`.
+```bash
+npx serve .
+```
