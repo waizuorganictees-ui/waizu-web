@@ -553,13 +553,12 @@
             <p style="font-size:16px;color:var(--ink-70);margin:0;">Prendas de proveedores que podemos nombrar, con certificación en algodón orgánico.</p>
           </div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;">
-            <sc-for list="{{ brands }}" as="b" hint-placeholder-count="6">
-              <div style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r);min-height:84px;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;">
-                <span style="font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-70);">{{ b.name }}</span>
-              </div>
+            <sc-for list="{{ brands }}" as="b" hint-placeholder-count="4">
+              <a href="{{ b.url }}" target="_blank" rel="noopener" style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r);min-height:84px;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;text-decoration:none;transition:border-color .15s;">
+                <img src="{{ b.logo }}" alt="{{ b.name }}" style="max-width:100%;max-height:40px;object-fit:contain;">
+              </a>
             </sc-for>
           </div>
-          <p style="font-family:var(--font-mono);font-size:11px;color:var(--ink-55);text-align:center;margin:20px 0 0;">[ logotipos pendientes de añadir ]</p>
         </div>
       </section>
 
@@ -1475,8 +1474,10 @@ class Component extends DCLogic {
       ],
       worksLoop: (()=>{ const w=['CEIP Las Lomas · fin de curso','Peña El Barril · fiestas','Studio Nara · equipo','AMPA Ruiz de Alarcón','Trail Alcarria 2026','Cafetería Ombú']; return [...w,...w].map((title,i)=>({ title, id:i })); })(),
       brands: [
-        { name:'Stanley/Stella' },{ name:'Continental Clothing' },{ name:'Sol\'s' },
-        { name:'Kariban' },{ name:'Fruit of the Loom' },{ name:'B&C Collection' },
+        { name:'Makito', logo:'assets/47ec1d59-2210-4e3b-9c7c-a9a075647dcd.png', url:'https://makito.es/' },
+        { name:'JHK', logo:'assets/44ba9819-eec0-4fce-8a4f-a08ad35d0d40.png', url:'https://www.jhktshirt.com/es/' },
+        { name:'Valento', logo:'assets/859eccc1-c386-4109-ab5c-d71765e1fcdc.png', url:'https://www.valento.es/' },
+        { name:'Roly', logo:'assets/54e274ef-20ac-457e-b811-829b6f312ca1.svg', url:'https://roly.eu/es' },
       ],
       isComo: s.view==='como', isFaq: s.view==='faq', isContacto: s.view==='contacto',
       isLegal: s.view==='legal',
