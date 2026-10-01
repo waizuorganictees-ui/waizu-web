@@ -569,13 +569,8 @@
           <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3.5vw,36px);margin:0;letter-spacing:-.015em;">Síguenos el hilo</h2>
           <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.05em;color:var(--primary-dark);background:var(--bone);padding:6px 12px;border-radius:var(--r-pill);">@waizuorganictees</span>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;">
-          <sc-for list="{{ instaTiles }}" as="t" hint-placeholder-count="6">
-            <div style="aspect-ratio:1/1;background:var(--bone);background-image:repeating-linear-gradient(135deg,rgba(42,37,32,.045) 0 10px,transparent 10px 20px);border-radius:var(--r);display:flex;align-items:flex-end;padding:12px;">
-              <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;color:var(--ink-55);">{{ t.label }}</span>
-            </div>
-          </sc-for>
-        </div>
+        <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+        <iframe src="//lightwidget.com/widgets/48321232bc2351e88266b842d29a3932.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
       </section>
     </sc-if>
 
@@ -1512,8 +1507,6 @@ class Component extends DCLogic {
         { n:'✦', label:'Taller propio en Guadalajara' },
         { n:'✦', label:'Tiradas cortas y personalización' },
       ],
-      instaTiles: Array.from({length:6}, (_,i)=>({ label:'@waizuorganictees · post '+(i+1) })),
-
       // whatsapp
       openWhatsapp: () => {
         const message = 'Hola, me gustaría obtener más información sobre Waizu. Estoy interesado en pedir presupuesto. Mi proyecto es: ';
