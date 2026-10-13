@@ -781,8 +781,7 @@
                 <div style="padding:4px 16px 20px;display:flex;flex-direction:column;gap:14px;">
                   <sc-if value="{{ g.isEmpty }}" hint-placeholder-val="{{ false }}">
                     <div style="border:1px dashed var(--line-strong);border-radius:var(--r);padding:32px 20px;text-align:center;background:var(--bone);">
-                      <div style="font-weight:600;font-size:15px;margin-bottom:4px;">Próximamente</div>
-                      <div style="font-family:var(--font-mono);font-size:12px;color:var(--ink-55);">[ productos pendientes de añadir ]</div>
+                      <div style="font-size:15px;">Escríbenos y te enseñamos las opciones disponibles.</div>
                     </div>
                   </sc-if>
                   <sc-for list="{{ g.products }}" as="p" hint-placeholder-count="3">
@@ -834,18 +833,20 @@
         <div style="max-width:620px;margin:0 auto 44px;text-align:center;">
           <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--primary-dark);margin-bottom:12px;">Works</div>
           <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(32px,5vw,52px);letter-spacing:-.02em;margin:0 0 12px;">Trabajos realizados</h1>
-          <p style="font-size:17px;color:var(--ink-70);margin:0;">Encargos que han salido del taller. <span style="font-family:var(--font-mono);font-size:13px;color:var(--ink-55);">[ pendiente de subir fotos reales ]</span></p>
+          <p style="font-size:17px;color:var(--ink-70);margin:0;">Encargos que han salido del taller. Subimos las fotos de cada trabajo a nuestro Instagram.</p>
         </div>
-        <div style="position:relative;overflow:hidden;margin:0 calc(50% - 50vw);padding:4px 0;">
-          <div style="display:flex;gap:clamp(16px,2.5vw,28px);width:max-content;animation:waizu-marquee 42s linear infinite;">
-            <sc-for list="{{ worksLoop }}" as="w" hint-placeholder-count="12">
-              <div style="flex:0 0 auto;width:clamp(240px,26vw,320px);aspect-ratio:4/3;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--bone);background-image:repeating-linear-gradient(135deg,rgba(42,37,32,.045) 0 12px,transparent 12px 24px);display:flex;align-items:flex-end;padding:14px;">
-                <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-55);">[ placeholder · foto del trabajo ]</span>
-              </div>
+        <sc-if value="{{ hasIg }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:14px;">
+            <sc-for list="{{ igLoop }}" as="ig" hint-placeholder-count="6">
+              <a href="{{ ig.url }}" target="_blank" rel="noopener" style="aspect-ratio:1;border-radius:var(--r);overflow:hidden;background:var(--bone);display:block;">
+                <img sc-camel-src="{{ ig.img }}" alt="{{ ig.alt }}" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" style-hover="transform:scale(1.05);">
+              </a>
             </sc-for>
           </div>
+        </sc-if>
+        <div style="text-align:center;margin-top:28px;">
+          <a href="https://www.instagram.com/waizu_organictees/" target="_blank" rel="noopener" style="display:inline-block;padding:13px 26px;background:var(--primary);color:#fff;border-radius:var(--r);font-weight:600;font-size:15px;text-decoration:none;">Ver más trabajos en @waizu_organictees</a>
         </div>
-        <p style="font-family:var(--font-mono);font-size:11px;color:var(--ink-55);text-align:center;margin:24px 0 0;">⟳ El carrusel avanza en bucle de lado a lado</p>
       </section></sc-if>
     <sc-if value="{{ isColegios }}" hint-placeholder-val="{{ false }}"><section style="background:var(--bone);">
         <div style="max-width:var(--maxw);margin:0 auto;padding:clamp(48px,7vw,96px) clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,4vw,64px);align-items:center;">
@@ -1043,7 +1044,6 @@
     </div>
     <div style="max-width:var(--maxw);margin:0 auto;padding:18px clamp(16px,4vw,40px);border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.45);">
       <span>© 2026 Waizu · Hecho a mano en Guadalajara</span>
-      <span style="font-family:var(--font-mono);">[ datos legales pendientes de completar ]</span>
     </div>
   </footer>
 
@@ -1219,18 +1219,6 @@ class Component extends DCLogic {
 
   teeStates = [];
 
-  products = [
-    { id:0, name:'Camiseta Esencial', tag:'100% algodón', price:24.90, type:'Básica', colors:['#2A2520','#F4EFE6','#3B5B59'] },
-    { id:1, name:'Camiseta Hoja', tag:'Personalizado DTF', price:27.90, type:'Estampada', colors:['#5E6B4F','#F4EFE6','#2A2520'] },
-    { id:2, name:'Camiseta Montaña', tag:'Edición taller', price:29.90, type:'Estampada', colors:['#3B5B59','#C7B8A1','#2A2520'] },
-    { id:3, name:'Camiseta Sol', tag:'Diseño DTF', price:27.90, type:'Estampada', colors:['#E8642C','#F4EFE6','#2A2520'] },
-    { id:4, name:'Camiseta Origen', tag:'Cuello redondo', price:25.90, type:'Básica', colors:['#C7B8A1','#2A2520','#F4EFE6'] },
-    { id:5, name:'Camiseta Taller', tag:'Manga corta', price:26.90, type:'Básica', colors:['#2A2520','#5E6B4F','#F4EFE6'] },
-    { id:6, name:'Camiseta Raíz', tag:'Estampado dorso', price:31.90, type:'Premium', colors:['#3B5B59','#2A2520','#C7B8A1'] },
-    { id:7, name:'Camiseta Bosque', tag:'Algodón peinado', price:30.90, type:'Premium', colors:['#5E6B4F','#F4EFE6','#3B5B59'] },
-    { id:8, name:'Camiseta Tierra', tag:'Tono natural', price:25.90, type:'Básica', colors:['#C7B8A1','#E8642C','#2A2520'] },
-  ];
-
   faqs = [
     { q:'¿De qué están hechas nuestras prendas?', a:'Nuestras camisetas están hechas de algodón 100% orgánico. Todo personalizado y estampado a mano en nuestro taller de Guadalajara. Pero no solo contamos con camisetas. Tenemos un amplio catálogo de productos.' },
     { q:'¿Hacéis serigrafía o DTF?', a:'Hacemos las dos cosas en nuestro taller de Guadalajara: serigrafía y DTF. Te recomendamos la técnica que mejor encaja con tu diseño y con el número de prendas.' },
@@ -1313,7 +1301,7 @@ class Component extends DCLogic {
       ['b','La información almacenada en las cookies de nuestro Sitio Web es utilizada exclusivamente por nosotros, a excepción de aquellas identificadas como "cookie de terceros", que son utilizadas y gestionadas por entidades externas que nos proporcionan servicios que mejoran la experiencia del usuario. Por ejemplo las estadísticas que se recogen sobre el número de visitas, el contenido que más gusta, etc.'],
       ['h','Cookies de terceros'],
       ['b','Los servicios de terceros son ajenos al control del editor. Los proveedores pueden modificar en todo momento sus condiciones de servicio, finalidad y utilización de las cookies, etc.'],
-      ['b','Proveedores externos de este sitio web: Facebook, Google Analytics, Google, PHP.net y Twitter, con sus respectivas políticas de privacidad. [ listado pendiente de confirmar ]'],
+      ['b','Proveedores externos que intervienen en este sitio web, cada uno con su propia política de privacidad: GitHub (alojamiento de la web), FormSubmit (envío de los formularios de contacto y presupuesto), Cloudflare (servicio que muestra nuestras publicaciones de Instagram), Meta (las fotos de Instagram se cargan desde sus servidores) y WhatsApp (si decides escribirnos por ese canal).'],
       ['b','El Prestador se compromete a mantener actualizado este listado modificándolo a la mayor brevedad posible, según se modifiquen los servicios que ofrece en su sitio o se actualicen nuevos módulos de las aplicaciones que lo mantienen. Sin embargo, puede ser que puntualmente no se muestren los resultados actualizados, por lo que se recomienda revisar la fecha de actualización de este documento.'],
       ['b','El Prestador se compromete a utilizar cookies con las mismas finalidades que las que actualmente existen en la web y, en el caso de que se haga necesaria la utilización de otro tipo de cookies, a comunicarlo a los usuarios de forma inmediata.'],
       ['b','Waizu mantiene abiertos perfiles en distintas redes sociales para la promoción de sus productos y servicios pero no es responsable ante el usuario de informar de las cookies que se instalarán en su equipo al acceder a dicha red, ni de las políticas de privacidad de las mismas.'],
@@ -1579,10 +1567,6 @@ class Component extends DCLogic {
       bg: s.view === v ? 'var(--bone)' : 'transparent',
     }));
 
-    const products = this.products.map(p => ({
-      ...p, priceStr:this.fmt(p.price), onOpen: () => { this.setState({ view:'producto', selectedProduct:p.id }); try{window.scrollTo(0,0);}catch(e){} },
-    }));
-
     const faqs = this.faqs.map((f,i) => ({
       ...f, isOpen: s.faqOpen === i, onToggle: () => this.setState(st=>({ faqOpen: st.faqOpen===i ? -1 : i })),
       sign: s.faqOpen === i ? '−' : '+',
@@ -1693,15 +1677,6 @@ class Component extends DCLogic {
             products, onToggle:()=>this.setState(st=>({ catOpen: st.catOpen===g.id ? null : g.id })) };
         });
       })(),
-      works: [
-        { title:'CEIP Las Lomas · fin de curso', meta:'120 uds · algodón 100% orgánico · DTF a 2 tintas' },
-        { title:'Peña El Barril · fiestas', meta:'85 uds · estampación pecho y espalda' },
-        { title:'Studio Nara · equipo', meta:'24 uds · logo bordado en pecho izquierdo' },
-        { title:'AMPA Ruiz de Alarcón', meta:'200 uds · diseño infantil a 3 tintas' },
-        { title:'Trail Alcarria 2026', meta:'150 uds · técnica y algodón orgánico' },
-        { title:'Cafetería Ombú', meta:'30 uds · delantales y camisetas' },
-      ],
-      worksLoop: (()=>{ const w=['CEIP Las Lomas · fin de curso','Peña El Barril · fiestas','Studio Nara · equipo','AMPA Ruiz de Alarcón','Trail Alcarria 2026','Cafetería Ombú']; return [...w,...w].map((title,i)=>({ title, id:i })); })(),
       brands: [
         { name:'Makito', logo:'assets/47ec1d59-2210-4e3b-9c7c-a9a075647dcd.png', url:'https://makito.es/' },
         { name:'JHK', logo:'assets/44ba9819-eec0-4fce-8a4f-a08ad35d0d40.png', url:'https://www.jhktshirt.com/es/' },
@@ -1758,19 +1733,8 @@ class Component extends DCLogic {
         { label:'Condiciones de compra', onClick:()=>this.goLegal('compra') },
       ],
 
-      products, faqs, steps: this.steps,
+      faqs, steps: this.steps,
 
-      // ===== Ficha de producto =====
-      pd: (() => { const p = this.products[s.selectedProduct] || this.products[0]; return { ...p, priceStr:this.fmt(p.price) }; })(),
-      pdSizes: ['S','M','L','XL','XXL'].map(sz => ({ label:sz, onClick:()=>this.setState({pdSize:sz}), activeBorder:s.pdSize===sz?'var(--ink)':'var(--line-strong)', activeBg:s.pdSize===sz?'var(--ink)':'transparent', activeColor:s.pdSize===sz?'#fff':'var(--ink)' })),
-      pdInfoPoints: ['Envío en 2–4 días laborables · entrega cuidada','Algodón 100% orgánico · diseños personalizados a mano con DTF','Hecho a mano en Guadalajara · tiradas cortas'],
-      pdColors: (this.products[s.selectedProduct]||this.products[0]).colors.map((hex,i)=>({ hex, active:i===s.pdColor, ring:i===s.pdColor?'var(--primary)':'var(--line)', onClick:()=>this.setState({pdColor:i}) })),
-      pdQty: s.pdQty,
-      pdInc: () => this.setState(st=>({pdQty:Math.min(st.pdQty+1,20)})),
-      pdDec: () => this.setState(st=>({pdQty:Math.max(st.pdQty-1,1)})),
-      pdGallery: [0,1,2,3].map(i=>({ active:i===s.pdImage, border:i===s.pdImage?'var(--primary)':'var(--line)', onClick:()=>this.setState({pdImage:i}) })),
-      addToCart: () => this.setState({ cartOpen:true }),
-      pdRelated: this.products.filter(p=>p.id!==s.selectedProduct).slice(0,3).map(p=>({ ...p, priceStr:this.fmt(p.price), onOpen:()=>{ this.setState({view:'producto',selectedProduct:p.id}); try{window.scrollTo(0,0);}catch(e){} } })),
 
       goColegios: ()=>this.go('colegios'),
 
