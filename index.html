@@ -837,7 +837,7 @@
           <p style="font-size:17px;color:var(--ink-70);margin:0;">Encargos que han salido del taller. Subimos las fotos de cada trabajo a nuestro Instagram.</p>
         </div>
         <sc-if value="{{ hasIg }}" hint-placeholder-val="{{ true }}">
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:14px;">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:clamp(8px,1.5vw,14px);">
             <sc-for list="{{ igLoop }}" as="ig" hint-placeholder-count="6">
               <a href="{{ ig.url }}" target="_blank" rel="noopener" style="aspect-ratio:1;border-radius:var(--r);overflow:hidden;background:var(--bone);display:block;">
                 <img sc-camel-src="{{ ig.img }}" alt="{{ ig.alt }}" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" style-hover="transform:scale(1.05);">
