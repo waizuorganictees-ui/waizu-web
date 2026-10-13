@@ -578,6 +578,7 @@
     /* — Capa 2: Expresión de color (lo que se redefine al clonar) — */
     --primary:#E8642C;        /* CTAs, acentos, iconos */
     --primary-dark:#B8460F;   /* texto/iconos naranjas sobre claro, hover (AA) */
+    --primary-cta:#C84E1B;    /* fondo de botones con texto blanco (contraste AA 4,6:1) */
     --bone:#F4EFE6;           /* relleno de huecos sin foto ni texto */
     --bg:#FBF9F5;             /* fondo general blanco roto cálido */
     --ink:#2A2520;            /* tinta de texto negro cálido */
@@ -670,7 +671,7 @@
         </div>
         <div style="max-width:var(--maxw);margin:0 auto;padding:clamp(20px,3.5vw,36px) clamp(16px,4vw,40px) clamp(28px,4vw,40px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;" data-fade="">
           <h1 style="font-family:inherit;font-size:clamp(15px,2vw,19px);line-height:1.5;color:var(--ink);margin:0;font-weight:500;">Serigrafía y DTF en Guadalajara · camisetas de algodón 100% orgánico personalizadas a mano</h1>
-          <button sc-camel-on-click="{{ goEstrella }}" style="padding:15px 30px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(232,100,44,.3);transition:transform .2s ease,background .2s ease;" style-hover="transform:translateY(-2px);background:var(--primary-dark);">Ver catálogo</button>
+          <button sc-camel-on-click="{{ goEstrella }}" style="padding:15px 30px;background:var(--primary-cta);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(232,100,44,.3);transition:transform .2s ease,background .2s ease;" style-hover="transform:translateY(-2px);background:var(--primary-dark);">Ver catálogo</button>
         </div>
       </section>
 
@@ -755,7 +756,7 @@
         <sc-if value="{{ noIg }}" hint-placeholder-val="{{ false }}">
           <div style="text-align:center;background:var(--bone);border-radius:var(--r-lg);padding:clamp(28px,5vw,48px) 20px;">
             <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:var(--ink);">Mira nuestros últimos trabajos y novedades en Instagram.</p>
-            <a href="https://www.instagram.com/waizu_organictees/" target="_blank" rel="noopener" style="display:inline-block;padding:13px 26px;background:var(--primary);color:#fff;border-radius:var(--r);font-weight:600;font-size:15px;text-decoration:none;">Ver @waizu_organictees</a>
+            <a href="https://www.instagram.com/waizu_organictees/" target="_blank" rel="noopener" style="display:inline-block;padding:13px 26px;background:var(--primary-cta);color:#fff;border-radius:var(--r);font-weight:600;font-size:15px;text-decoration:none;">Ver @waizu_organictees</a>
           </div>
         </sc-if>
       </section>
@@ -824,7 +825,7 @@
           <p style="font-size:16px;line-height:1.65;color:var(--ink-70);margin:0 auto 14px;max-width:58ch;">Los productos que ves aquí son solo algunos de los más vendidos. Además del catálogo, personalizamos gorras, tazas, llaveros, alfombras, gafas, cinturones, cantimploras, termos, timbres para bici, bolsas de papel, bolsas de cuerdas, delantales y muchos más artículos.</p>
           <p style="font-size:16px;line-height:1.65;color:var(--ink-70);margin:0 auto 24px;max-width:58ch;">Si buscas algo concreto y no aparece en la web, consúltanos igualmente. Valoraremos el producto, el diseño y el acabado más adecuado para tu idea.</p>
           <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-            <button sc-camel-on-click="{{ goColegios }}" style="padding:14px 26px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Pide presupuesto</button>
+            <button sc-camel-on-click="{{ goColegios }}" style="padding:14px 26px;background:var(--primary-cta);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Pide presupuesto</button>
             <a href="https://wa.me/34614153385?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Waizu.%20Estoy%20interesado%20en%20pedir%20presupuesto.%20Mi%20proyecto%20es%3A%20" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;padding:14px 26px;background:transparent;border:1.5px solid var(--line-strong);border-radius:var(--r);color:var(--ink);font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="border-color:var(--ink);">Consultar por WhatsApp</a>
           </div>
         </div>
@@ -845,7 +846,7 @@
           </div>
         </sc-if>
         <div style="text-align:center;margin-top:28px;">
-          <a href="https://www.instagram.com/waizu_organictees/" target="_blank" rel="noopener" style="display:inline-block;padding:13px 26px;background:var(--primary);color:#fff;border-radius:var(--r);font-weight:600;font-size:15px;text-decoration:none;">Ver más trabajos en @waizu_organictees</a>
+          <a href="https://www.instagram.com/waizu_organictees/" target="_blank" rel="noopener" style="display:inline-block;padding:13px 26px;background:var(--primary-cta);color:#fff;border-radius:var(--r);font-weight:600;font-size:15px;text-decoration:none;">Ver más trabajos en @waizu_organictees</a>
         </div>
       </section></sc-if>
     <sc-if value="{{ isColegios }}" hint-placeholder-val="{{ false }}"><section style="background:var(--bone);">
@@ -891,7 +892,7 @@
             <input type="checkbox" name="privacidad" required="{{ isRequired }}" style="margin-top:3px;flex:0 0 auto;width:16px;height:16px;accent-color:var(--primary);cursor:pointer;">
             <span>He leído y acepto la <a href="#privacidad" target="_blank" rel="noopener" style="color:var(--primary-dark);text-decoration:underline;">política de privacidad</a>. Waizu usará mis datos solo para responder a esta solicitud; el mensaje se envía mediante el servicio FormSubmit.</span>
           </label>
-          <button type="submit" style="margin-top:24px;padding:15px 32px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Pide presupuesto</button>
+          <button type="submit" style="margin-top:24px;padding:15px 32px;background:var(--primary-cta);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Pide presupuesto</button>
         </form>
       </section></sc-if>
     <sc-if value="{{ isComo }}" hint-placeholder-val="{{ false }}"><section style="max-width:var(--maxw);margin:0 auto;padding:clamp(40px,6vw,80px) clamp(16px,4vw,40px) clamp(48px,7vw,96px);">
@@ -914,7 +915,7 @@
           <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(26px,3.5vw,40px);margin:0 0 14px;letter-spacing:-.015em;">¿Listo para empezar?</h2>
           <p style="font-size:17px;color:rgba(255,255,255,.78);margin:0 auto 28px;max-width:42ch;">Diseña tu camiseta o pídenos presupuesto para tu grupo. Estamos a un mensaje.</p>
           <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-            <button sc-camel-on-click="{{ goEstrella }}" style="padding:15px 28px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Ver catálogo</button>
+            <button sc-camel-on-click="{{ goEstrella }}" style="padding:15px 28px;background:var(--primary-cta);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Ver catálogo</button>
             <button sc-camel-on-click="{{ goColegios }}" style="padding:15px 28px;background:transparent;border:1px solid rgba(255,255,255,.4);border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="border-color:#fff;">Pide presupuesto</button>
           </div>
         </div>
@@ -975,7 +976,7 @@
         <div style="margin-top:40px;text-align:center;background:var(--bone);border-radius:var(--r-lg);padding:32px;">
           <div style="font-family:var(--font-display);font-weight:600;font-size:22px;margin-bottom:8px;">¿No encuentras tu respuesta?</div>
           <p style="font-size:15px;color:var(--ink-70);margin:0 0 18px;">Escríbenos y te ayudamos con tu pedido o personalización.</p>
-          <a href="https://wa.me/34614153385?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Waizu.%20Estoy%20interesado%20en%20pedir%20presupuesto.%20Mi%20proyecto%20es%3A%20" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;padding:13px 24px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Consultar por WhatsApp</a>
+          <a href="https://wa.me/34614153385?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Waizu.%20Estoy%20interesado%20en%20pedir%20presupuesto.%20Mi%20proyecto%20es%3A%20" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;padding:13px 24px;background:var(--primary-cta);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Consultar por WhatsApp</a>
         </div>
       </section></sc-if>
     <sc-if value="{{ isContacto }}" hint-placeholder-val="{{ false }}"><section style="max-width:var(--maxw);margin:0 auto;padding:clamp(40px,6vw,80px) clamp(16px,4vw,40px) clamp(48px,7vw,96px);">
@@ -1011,7 +1012,7 @@
                 <input type="checkbox" name="privacidad" required="{{ isRequired }}" style="margin-top:3px;flex:0 0 auto;width:16px;height:16px;accent-color:var(--primary);cursor:pointer;">
                 <span>He leído y acepto la <a href="#privacidad" target="_blank" rel="noopener" style="color:var(--primary-dark);text-decoration:underline;">política de privacidad</a>. Waizu usará mis datos solo para responder a esta solicitud; el mensaje se envía mediante el servicio FormSubmit.</span>
               </label>
-              <button type="submit" style="padding:15px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Enviar mensaje</button>
+              <button type="submit" style="padding:15px;background:var(--primary-cta);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Enviar mensaje</button>
             </div>
           </form>
         </div>
@@ -1042,7 +1043,7 @@
         </a>
       </div>
     </div>
-    <div style="max-width:var(--maxw);margin:0 auto;padding:18px clamp(16px,4vw,40px);border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.45);">
+    <div style="max-width:var(--maxw);margin:0 auto;padding:18px clamp(16px,4vw,40px);border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.6);">
       <span>© 2026 Waizu · Hecho a mano en Guadalajara</span>
     </div>
   </footer>
@@ -1060,8 +1061,8 @@
         <div style="font-family:var(--font-display);font-weight:600;font-size:18px;color:var(--ink);">Sobre las cookies</div>
         <p style="margin:0;font-family:var(--font-sans);font-size:14px;line-height:1.55;color:var(--ink-70);">Esta web utiliza únicamente los recursos técnicos necesarios para funcionar y no usa cookies de análisis ni de publicidad. Puedes consultar todos los detalles en la <a sc-camel-on-click="{{ cookiesInfo }}" style="color:var(--primary-dark);text-decoration:underline;cursor:pointer;">política de cookies</a>.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <button sc-camel-on-click="{{ rejectCookies }}" style="flex:1 1 140px;padding:12px 20px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Rechazar</button>
-          <button sc-camel-on-click="{{ acceptCookies }}" style="flex:1 1 140px;padding:12px 20px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Aceptar</button>
+          <button sc-camel-on-click="{{ rejectCookies }}" style="flex:1 1 140px;padding:12px 20px;background:var(--primary-cta);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Rechazar</button>
+          <button sc-camel-on-click="{{ acceptCookies }}" style="flex:1 1 140px;padding:12px 20px;background:var(--primary-cta);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Aceptar</button>
         </div>
       </div>
     </div>
@@ -1073,7 +1074,7 @@
       <div sc-camel-on-click="{{ stopToastClick }}" style="max-width:380px;width:100%;background:var(--surface);border:1.5px solid {{ toastAccent }};border-radius:var(--r-lg);box-shadow:var(--shadow);padding:28px 26px 24px;text-align:center;">
         <span style="display:flex;width:44px;height:44px;margin:0 auto 16px;border-radius:var(--r-pill);background:{{ toastAccent }};color:#fff;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:20px;">{{ toastIcon }}</span>
         <div style="font-family:var(--font-sans);font-size:16px;line-height:1.5;color:var(--ink);font-weight:500;margin-bottom:22px;">{{ toastMessage }}</div>
-        <button sc-camel-on-click="{{ closeToast }}" style="padding:12px 40px;background:var(--primary);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Vale</button>
+        <button sc-camel-on-click="{{ closeToast }}" style="padding:12px 40px;background:var(--primary-cta);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Vale</button>
       </div>
     </div>
   </sc-if>
