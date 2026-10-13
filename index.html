@@ -738,7 +738,7 @@
             <div id="ig-track" style="display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px;">
               <sc-for list="{{ igLoop }}" as="ig" hint-placeholder-count="6">
                 <a href="{{ ig.url }}" target="_blank" rel="noopener" style="flex:0 0 clamp(210px,24%,290px);aspect-ratio:1;scroll-snap-align:start;border-radius:var(--r);overflow:hidden;background:var(--bone);display:block;">
-                  <img src="{{ ig.img }}" alt="{{ ig.alt }}" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" style-hover="transform:scale(1.05);">
+                  <img src="{{ ig.img }}" alt="{{ ig.alt }}" decoding="async" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" style-hover="transform:scale(1.05);">
                 </a>
               </sc-for>
             </div>
@@ -1147,7 +1147,20 @@ class Component extends DCLogic {
           typeof p.media_url === 'string' && /^https:\/\//.test(p.media_url) &&
           typeof p.permalink === 'string' && /^https:\/\/(www\.)?instagram\.com\//.test(p.permalink)
         ).slice(0, 12);
-        this.setState({ igPosts: posts, igLoaded: true });
+        /* Se precargan las fotos y solo se muestran las que cargan de verdad,
+           para que nunca quede un hueco en blanco en el carrusel. */
+        const preload = (post) => new Promise(resolve => {
+          const img = new Image();
+          const timer = setTimeout(() => resolve(null), 12000);
+          img.referrerPolicy = 'no-referrer';
+          img.onload = () => { clearTimeout(timer); resolve(img.naturalWidth > 0 ? post : null); };
+          img.onerror = () => { clearTimeout(timer); resolve(null); };
+          img.src = post.media_url;
+        });
+        return Promise.all(posts.map(preload)).then(list => {
+          const ok = list.filter(Boolean);
+          this.setState({ igPosts: ok.length >= 3 ? ok : [], igLoaded: true });
+        });
       })
       .catch(() => this.setState({ igPosts: [], igLoaded: true }));
   }
