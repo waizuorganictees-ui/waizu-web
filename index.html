@@ -666,7 +666,7 @@
       <!-- HERO -->
       <section style="background:#F2E3C4;">
         <div style="position:relative;width:100%;aspect-ratio:1929/845;max-height:74vh;overflow:hidden;">
-          <img src="assets/e58e0b43-17b2-4fa8-be84-484d9426c36e.jpg" alt="Waizu Organic Tees" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+          <picture style="display:contents;"><source type="image/webp" srcset="assets/e58e0b43-17b2-4fa8-be84-484d9426c36e-640.webp 640w, assets/e58e0b43-17b2-4fa8-be84-484d9426c36e-1024.webp 1024w, assets/e58e0b43-17b2-4fa8-be84-484d9426c36e-1800.webp 1800w" sizes="100vw"><img src="assets/e58e0b43-17b2-4fa8-be84-484d9426c36e.jpg" alt="Logotipo de Waizu Organic Tees" width="1800" height="775" fetchpriority="high" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"></picture>
         </div>
         <div style="max-width:var(--maxw);margin:0 auto;padding:clamp(20px,3.5vw,36px) clamp(16px,4vw,40px) clamp(28px,4vw,40px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;" data-fade="">
           <h1 style="font-family:inherit;font-size:clamp(15px,2vw,19px);line-height:1.5;color:var(--ink);margin:0;font-weight:500;">Serigrafía y DTF en Guadalajara · camisetas de algodón 100% orgánico personalizadas a mano</h1>
@@ -696,7 +696,7 @@
             <a sc-camel-on-click="{{ goComo }}" style="cursor:pointer;font-size:15px;font-weight:600;color:var(--primary-dark);text-decoration:none;border-bottom:2px solid var(--primary);padding-bottom:2px;">Cómo trabajamos →</a>
           </div>
           <div style="aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;background:var(--bone);">
-            <img src="assets/f6048617-a8ec-4bd7-81ad-6ed9cca6ef53.jpg" alt="Camisetas Waizu de 100% algodón secándose al aire" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+            <picture style="display:contents;"><source type="image/webp" srcset="assets/f6048617-a8ec-4bd7-81ad-6ed9cca6ef53-480.webp 480w, assets/f6048617-a8ec-4bd7-81ad-6ed9cca6ef53-800.webp 800w" sizes="(max-width: 700px) 100vw, 50vw"><img src="assets/f6048617-a8ec-4bd7-81ad-6ed9cca6ef53.jpg" alt="Camisetas Waizu de 100% algodón secándose al aire" width="1100" height="1100" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></picture>
           </div>
         </div>
       </section>
@@ -705,7 +705,7 @@
       <section style="max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(48px,7vw,96px);">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,4vw,64px);align-items:center;">
           <div style="aspect-ratio:4/5;order:0;border-radius:var(--r-lg);overflow:hidden;background:var(--bone);">
-            <img src="assets/01fd08d9-b74a-4f26-8e69-8b66c438dfce.jpg" alt="Impresión DTF a mano en el taller Waizu" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+            <picture style="display:contents;"><source type="image/webp" srcset="assets/01fd08d9-b74a-4f26-8e69-8b66c438dfce-480.webp 480w, assets/01fd08d9-b74a-4f26-8e69-8b66c438dfce-811.webp 811w" sizes="(max-width: 700px) 100vw, 50vw"><img src="assets/01fd08d9-b74a-4f26-8e69-8b66c438dfce.jpg" alt="Impresión DTF a mano en el taller Waizu" width="811" height="866" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></picture>
           </div>
           <div data-fade="">
             <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--primary-dark);margin-bottom:14px;">02 — La estampación</div>
@@ -726,7 +726,7 @@
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;">
             <sc-for list="{{ brands }}" as="b" hint-placeholder-count="4">
               <a href="{{ b.url }}" target="_blank" rel="noopener" style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r);min-height:84px;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;text-decoration:none;transition:border-color .15s;">
-                <img src="{{ b.logo }}" alt="{{ b.name }}" style="max-width:100%;max-height:40px;object-fit:contain;">
+                <img sc-camel-src="{{ b.logo }}" alt="{{ b.name }}" loading="lazy" style="max-width:100%;max-height:40px;object-fit:contain;">
               </a>
             </sc-for>
           </div>
@@ -745,7 +745,7 @@
             <div id="ig-track" style="display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px;">
               <sc-for list="{{ igLoop }}" as="ig" hint-placeholder-count="6">
                 <a href="{{ ig.url }}" target="_blank" rel="noopener" style="flex:0 0 clamp(210px,24%,290px);aspect-ratio:1;scroll-snap-align:start;border-radius:var(--r);overflow:hidden;background:var(--bone);display:block;">
-                  <img src="{{ ig.img }}" alt="{{ ig.alt }}" decoding="async" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" style-hover="transform:scale(1.05);">
+                  <img sc-camel-src="{{ ig.img }}" alt="{{ ig.alt }}" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" style-hover="transform:scale(1.05);">
                 </a>
               </sc-for>
             </div>
@@ -861,7 +861,7 @@
             </div>
           </div>
           <div style="aspect-ratio:4/3;border-radius:var(--r-lg);overflow:hidden;background:var(--surface);">
-            <img src="assets/a59bdab8-8c4a-4fc4-b5de-a1fc18a593c2.jpg" alt="Grupo de estudiantes y profesores con camisetas Waizu personalizadas" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+            <picture style="display:contents;"><source type="image/webp" srcset="assets/a59bdab8-8c4a-4fc4-b5de-a1fc18a593c2-480.webp 480w, assets/a59bdab8-8c4a-4fc4-b5de-a1fc18a593c2-800.webp 800w, assets/a59bdab8-8c4a-4fc4-b5de-a1fc18a593c2-1100.webp 1100w" sizes="(max-width: 700px) 100vw, 50vw"><img src="assets/a59bdab8-8c4a-4fc4-b5de-a1fc18a593c2.jpg" alt="Grupo de estudiantes y profesores con camisetas Waizu personalizadas" width="1100" height="825" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></picture>
           </div>
         </div>
       </section>
