@@ -732,8 +732,25 @@
           <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3.5vw,36px);margin:0;letter-spacing:-.015em;">Síguenos el hilo</h2>
           <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.05em;color:var(--primary-dark);background:var(--bone);padding:6px 12px;border-radius:var(--r-pill);">@waizuorganictees</span>
         </div>
-        <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
-        <iframe src="//lightwidget.com/widgets/48321232bc2351e88266b842d29a3932.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+        <sc-if value="{{ hasIg }}" hint-placeholder-val="{{ true }}">
+          <div style="position:relative;">
+            <button type="button" sc-camel-on-click="{{ igPrev }}" aria-label="Anteriores" style="position:absolute;left:-6px;top:50%;transform:translateY(-50%);z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);background:rgba(255,255,255,.95);color:var(--ink);font-size:20px;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(42,37,32,.15);">‹</button>
+            <div id="ig-track" style="display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px;">
+              <sc-for list="{{ igLoop }}" as="ig" hint-placeholder-count="6">
+                <a href="{{ ig.url }}" target="_blank" rel="noopener" style="flex:0 0 clamp(210px,24%,290px);aspect-ratio:1;scroll-snap-align:start;border-radius:var(--r);overflow:hidden;background:var(--bone);display:block;">
+                  <img src="{{ ig.img }}" alt="{{ ig.alt }}" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" style-hover="transform:scale(1.05);">
+                </a>
+              </sc-for>
+            </div>
+            <button type="button" sc-camel-on-click="{{ igNext }}" aria-label="Siguientes" style="position:absolute;right:-6px;top:50%;transform:translateY(-50%);z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);background:rgba(255,255,255,.95);color:var(--ink);font-size:20px;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(42,37,32,.15);">›</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ noIg }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;background:var(--bone);border-radius:var(--r-lg);padding:clamp(28px,5vw,48px) 20px;">
+            <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:var(--ink);">Mira nuestros últimos trabajos y novedades en Instagram.</p>
+            <a href="https://www.instagram.com/waizuorganictees/" target="_blank" rel="noopener" style="display:inline-block;padding:13px 26px;background:var(--primary);color:#fff;border-radius:var(--r);font-weight:600;font-size:15px;text-decoration:none;">Ver @waizuorganictees</a>
+          </div>
+        </sc-if>
       </section>
     </sc-if>
 
@@ -1074,6 +1091,8 @@ class Component extends DCLogic {
     mobileMenuOpen: false,
     isShort: (typeof window !== 'undefined' && window.innerHeight < 700),
     toast: null,
+    igPosts: [],
+    igLoaded: false,
     cookieChoice: (() => { try { return window.localStorage.getItem('waizu-cookies'); } catch (e) { return null; } })(),
   };
 
@@ -1095,6 +1114,7 @@ class Component extends DCLogic {
 
   componentDidMount() {
     this._ensureThumbnail();
+    this._loadInstagram();
     this._lastView = this.state.view;
     const hashDoc = (window.location.hash || '').slice(1);
     if (Object.prototype.hasOwnProperty.call(this.legalDocs, hashDoc)) this.setState({ view: 'legal', legalDoc: hashDoc });
@@ -1116,6 +1136,25 @@ class Component extends DCLogic {
     }
   }
   componentWillUnmount() { window.removeEventListener('resize', this._onResize); }
+
+  /* Últimas publicaciones de Instagram, servidas por la tienda (API oficial
+     de Meta). Si falla o aún no está conectado, se muestra un botón al perfil. */
+  _loadInstagram() {
+    fetch('https://waizu-shop.waizuorganictees.workers.dev/api/instagram/posts')
+      .then(r => (r.ok ? r.json() : Promise.reject(new Error('ig'))))
+      .then(d => {
+        const posts = (d.posts || []).filter(p =>
+          typeof p.media_url === 'string' && /^https:\/\//.test(p.media_url) &&
+          typeof p.permalink === 'string' && /^https:\/\/(www\.)?instagram\.com\//.test(p.permalink)
+        ).slice(0, 12);
+        this.setState({ igPosts: posts, igLoaded: true });
+      })
+      .catch(() => this.setState({ igPosts: [], igLoaded: true }));
+  }
+  _igScroll(dir) {
+    const el = document.getElementById('ig-track');
+    if (el) el.scrollBy({ left: dir * Math.max(240, el.clientWidth * 0.8), behavior: 'smooth' });
+  }
 
   _syncCompact() {
     const compact = window.innerWidth < 1024;
@@ -1536,6 +1575,11 @@ class Component extends DCLogic {
       goContacto: () => this.go('contacto'),
       goEstrella: () => this.go('estrella'),
       goWorks: () => this.go('works'),
+      hasIg: s.igPosts.length > 0,
+      noIg: s.igLoaded && s.igPosts.length === 0,
+      igLoop: s.igPosts.map(post => ({ url: post.permalink, img: post.media_url, alt: (post.caption || 'Publicación de Instagram de Waizu').slice(0, 110) })),
+      igPrev: () => this._igScroll(-1),
+      igNext: () => this._igScroll(1),
       goComo: () => this.go('como'),
       goTienda: () => this.go('tienda'),
 
