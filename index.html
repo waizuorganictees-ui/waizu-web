@@ -62,7 +62,7 @@
     }
    ],
    "sameAs": [
-    "https://www.instagram.com/waizuorganictees/"
+    "https://www.instagram.com/waizu_organictees/"
    ],
    "knowsAbout": [
     "Serigrafía",
@@ -730,7 +730,7 @@
       <section style="max-width:var(--maxw);margin:0 auto;padding:clamp(48px,7vw,96px) clamp(16px,4vw,40px);">
         <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
           <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3.5vw,36px);margin:0;letter-spacing:-.015em;">Síguenos el hilo</h2>
-          <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.05em;color:var(--primary-dark);background:var(--bone);padding:6px 12px;border-radius:var(--r-pill);">@waizuorganictees</span>
+          <a href="https://www.instagram.com/waizu_organictees/" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:12px;letter-spacing:.05em;color:var(--primary-dark);background:var(--bone);padding:6px 12px;border-radius:var(--r-pill);text-decoration:none;">@waizu_organictees</a>
         </div>
         <sc-if value="{{ hasIg }}" hint-placeholder-val="{{ true }}">
           <div style="position:relative;">
@@ -748,7 +748,7 @@
         <sc-if value="{{ noIg }}" hint-placeholder-val="{{ false }}">
           <div style="text-align:center;background:var(--bone);border-radius:var(--r-lg);padding:clamp(28px,5vw,48px) 20px;">
             <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:var(--ink);">Mira nuestros últimos trabajos y novedades en Instagram.</p>
-            <a href="https://www.instagram.com/waizuorganictees/" target="_blank" rel="noopener" style="display:inline-block;padding:13px 26px;background:var(--primary);color:#fff;border-radius:var(--r);font-weight:600;font-size:15px;text-decoration:none;">Ver @waizuorganictees</a>
+            <a href="https://www.instagram.com/waizu_organictees/" target="_blank" rel="noopener" style="display:inline-block;padding:13px 26px;background:var(--primary);color:#fff;border-radius:var(--r);font-weight:600;font-size:15px;text-decoration:none;">Ver @waizu_organictees</a>
           </div>
         </sc-if>
       </section>
@@ -980,7 +980,7 @@
               <sc-for list="{{ contactInfo }}" as="c" hint-placeholder-count="4">
                 <div style="display:flex;gap:14px;align-items:flex-start;">
                   <div style="width:40px;height:40px;flex:0 0 auto;border-radius:var(--r-pill);background:var(--bone);display:flex;align-items:center;justify-content:center;color:var(--primary-dark);font-size:16px;">{{ c.icon }}</div>
-                  <div><div style="font-size:13px;color:var(--ink-55);margin-bottom:2px;">{{ c.label }}</div><div style="font-size:15px;font-weight:500;font-family:var(--font-mono);">{{ c.value }}</div></div>
+                  <div><div style="font-size:13px;color:var(--ink-55);margin-bottom:2px;">{{ c.label }}</div><sc-if value="{{ c.hasLink }}"><a href="{{ c.link }}" target="_blank" rel="noopener" style="display:block;width:fit-content;font-size:15px;font-weight:500;font-family:var(--font-mono);color:inherit;text-decoration:none;border-bottom:1px solid var(--line-strong);">{{ c.value }}</a></sc-if><sc-if value="{{ c.noLink }}"><div style="font-size:15px;font-weight:500;font-family:var(--font-mono);">{{ c.value }}</div></sc-if></div>
                 </div>
               </sc-for>
             </div>
@@ -1027,7 +1027,7 @@
       </div>
       <div>
         <div style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px;">Contacto</div>
-        <div style="font-size:14px;line-height:1.9;color:rgba(255,255,255,.6);font-family:var(--font-mono);">Calle La Carrera 63, 19001 Guadalajara (España)<br>+34 614 15 33 85<br>waizuorganictees@gmail.com<br>@waizuorganictees<br>CIF B56985427</div>
+        <div style="font-size:14px;line-height:1.9;color:rgba(255,255,255,.6);font-family:var(--font-mono);">Calle La Carrera 63, 19001 Guadalajara (España)<br>+34 614 15 33 85<br>waizuorganictees@gmail.com<br><a href="https://www.instagram.com/waizu_organictees/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">@waizu_organictees</a><br>CIF B56985427</div>
         <button sc-camel-on-click="{{ openWhatsapp }}" style="margin-top:14px;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:#25D366;border:none;border-radius:var(--r-pill);color:#0b3d1f;font-family:var(--font-sans);font-size:13px;font-weight:600;cursor:pointer;">
           <svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="#0b3d1f"><path d="M12 2a10 10 0 0 0-8.6 15l-1 4 4.1-1A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.4.6.6-2.3-.2-.3A8 8 0 1 1 12 20z"></path></svg>
           WhatsApp
@@ -1786,9 +1786,9 @@ class Component extends DCLogic {
         { icon:'⌖', label:'Taller', value:'Calle La Carrera 63, 19001 Guadalajara, España' },
         { icon:'✆', label:'Teléfono', value:'+34 614 15 33 85' },
         { icon:'@', label:'Email', value:'waizuorganictees@gmail.com' },
-        { icon:'◈', label:'Instagram', value:'@waizuorganictees' },
+        { icon:'◈', label:'Instagram', value:'@waizu_organictees', link:'https://www.instagram.com/waizu_organictees/' },
         { icon:'◷', label:'Horario', value:'De 9 a 14' },
-      ],
+      ].map(c => ({ ...c, hasLink: !!c.link, noLink: !c.link })),
 
     };
   }
