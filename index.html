@@ -50,6 +50,12 @@
    "descripcion": "Camisetas personalizadas para colegios, AMPAs, peñas, eventos y empresas en Guadalajara (España). Diseño incluido y precio por volumen. Pide presupuesto."
   },
   {
+   "ruta": "/camisetas-para-penas-y-fiestas/",
+   "vista": "penas",
+   "titulo": "Camisetas para peñas en Guadalajara (España) | Waizu",
+   "descripcion": "Camisetas y sudaderas para tu peña, desde una sola prenda, estampadas a mano con serigrafía o DTF en Guadalajara (España). Diseño incluido."
+  },
+  {
    "ruta": "/como-funciona/",
    "vista": "como",
    "titulo": "Cómo funciona: de tu idea a tu camiseta | Waizu",
@@ -877,6 +883,9 @@
               </div>
               <sc-if value="{{ g.isOpen }}" hint-placeholder-val="{{ false }}">
                 <div style="padding:4px 16px 20px;display:flex;flex-direction:column;gap:14px;">
+                  <sc-if value="{{ g.esPenas }}" hint-placeholder-val="{{ false }}">
+                    <p style="margin:12px 8px 0;font-size:15px;color:var(--ink-70);">¿Organizas las camisetas de tu peña? <a href="/camisetas-para-penas-y-fiestas/" sc-camel-on-click="{{ goPenas }}" style="cursor:pointer;font-size:15px;font-weight:600;color:var(--primary-dark);text-decoration:none;border-bottom:2px solid var(--primary);padding-bottom:2px;">Mira cómo trabajamos con peñas →</a></p>
+                  </sc-if>
                   <sc-if value="{{ g.isEmpty }}" hint-placeholder-val="{{ false }}">
                     <div style="border:1px dashed var(--line-strong);border-radius:var(--r);padding:32px 20px;text-align:center;background:var(--bone);">
                       <div style="font-size:15px;">Escríbenos y te enseñamos las opciones disponibles.</div>
@@ -957,6 +966,7 @@
                 <div><div style="font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--primary-dark);">{{ st.n }}</div><div style="font-size:13px;color:var(--ink-70);">{{ st.label }}</div></div>
               </sc-for>
             </div>
+            <p style="margin:28px 0 0;font-size:15px;color:var(--ink-70);">¿Organizas las camisetas de tu peña? <a href="/camisetas-para-penas-y-fiestas/" sc-camel-on-click="{{ goPenas }}" style="cursor:pointer;font-size:15px;font-weight:600;color:var(--primary-dark);text-decoration:none;border-bottom:2px solid var(--primary);padding-bottom:2px;">Mira cómo trabajamos con peñas →</a></p>
           </div>
           <div style="aspect-ratio:4/3;border-radius:var(--r-lg);overflow:hidden;background:var(--surface);">
             <picture style="display:contents;"><source type="image/webp" srcset="assets/a59bdab8-8c4a-4fc4-b5de-a1fc18a593c2-480.webp 480w, assets/a59bdab8-8c4a-4fc4-b5de-a1fc18a593c2-800.webp 800w, assets/a59bdab8-8c4a-4fc4-b5de-a1fc18a593c2-1100.webp 1100w" sizes="(max-width: 700px) 100vw, 50vw"><img src="assets/a59bdab8-8c4a-4fc4-b5de-a1fc18a593c2.jpg" alt="Grupo de estudiantes y profesores con camisetas Waizu personalizadas" width="1100" height="825" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></picture>
@@ -991,6 +1001,112 @@
           </label>
           <button type="submit" style="margin-top:24px;padding:15px 32px;background:var(--primary-cta);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Pide presupuesto</button>
         </form>
+      </section></sc-if>
+    <sc-if value="{{ isPenas }}" hint-placeholder-val="{{ false }}"><section style="background:var(--bone);">
+        <div style="max-width:var(--maxw);margin:0 auto;padding:clamp(48px,7vw,96px) clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,4vw,64px);align-items:center;">
+          <div>
+            <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--primary-dark);margin-bottom:14px;">Peñas y fiestas</div>
+            <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(34px,5.5vw,58px);line-height:1.05;letter-spacing:-.02em;margin:0 0 18px;text-wrap:balance;">Camisetas para peñas en Guadalajara (España)</h1>
+            <p style="font-size:18px;line-height:1.6;color:var(--ink-70);margin:0 0 28px;max-width:48ch;">Hacemos las camisetas y sudaderas de tu peña en nuestro taller de la Calle La Carrera, en el centro de Guadalajara. Las estampamos a mano con serigrafía o DTF, desde una sola prenda, y te ayudamos con el diseño sin coste de maqueta. Puedes recogerlas en el taller o te las enviamos a cualquier punto de España.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:24px;">
+              <sc-for list="{{ penasStats }}" as="st" hint-placeholder-count="3">
+                <div><div style="font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--primary-dark);">{{ st.n }}</div><div style="font-size:13px;color:var(--ink-70);">{{ st.label }}</div></div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="aspect-ratio:4/3;border-radius:var(--r-lg);overflow:hidden;background:var(--surface);">
+            <picture style="display:contents;"><source type="image/webp" srcset="assets/a59bdab8-8c4a-4fc4-b5de-a1fc18a593c2-480.webp 480w, assets/a59bdab8-8c4a-4fc4-b5de-a1fc18a593c2-800.webp 800w, assets/a59bdab8-8c4a-4fc4-b5de-a1fc18a593c2-1100.webp 1100w" sizes="(max-width: 700px) 100vw, 50vw"><img src="assets/a59bdab8-8c4a-4fc4-b5de-a1fc18a593c2.jpg" alt="Grupo de estudiantes y profesores con camisetas Waizu personalizadas" width="1100" height="825" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></picture>
+          </div>
+        </div>
+      </section>
+      <section style="max-width:var(--maxw);margin:0 auto;padding:clamp(48px,7vw,88px) clamp(16px,4vw,40px);">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:clamp(48px,7vw,88px);">
+          <sc-for list="{{ penasBenefits }}" as="b" hint-placeholder-count="4">
+            <div style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;">
+              <div style="width:40px;height:40px;border-radius:var(--r-pill);background:var(--bone);display:flex;align-items:center;justify-content:center;color:var(--primary-dark);margin-bottom:16px;font-size:18px;">✦</div>
+              <h2 style="font-weight:600;font-size:17px;margin:0 0 6px;">{{ b.t }}</h2>
+              <div style="font-size:14px;line-height:1.55;color:var(--ink-70);">{{ b.d }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="margin-bottom:clamp(48px,7vw,88px);">
+          <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--primary-dark);margin-bottom:12px;">Técnicas</div>
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3.5vw,36px);letter-spacing:-.015em;margin:0 0 12px;">¿Serigrafía o DTF para tu peña?</h2>
+          <p style="font-size:16px;line-height:1.65;color:var(--ink-70);margin:0 0 28px;max-width:62ch;">Hacemos las dos en el mismo taller. Si no lo tienes claro, cuéntanos el diseño y cuántos sois, y te recomendamos la que mejor encaja.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
+            <sc-for list="{{ penasTecnicas }}" as="t" hint-placeholder-count="2">
+              <div style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;">
+                <h3 style="font-family:var(--font-display);font-weight:600;font-size:22px;margin:0 0 6px;">{{ t.t }}</h3>
+                <div style="font-size:14px;font-weight:600;color:var(--primary-dark);margin-bottom:10px;">{{ t.cuando }}</div>
+                <div style="font-size:15px;line-height:1.6;color:var(--ink-70);">{{ t.d }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="margin-bottom:clamp(48px,7vw,88px);">
+          <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--primary-dark);margin-bottom:12px;">Paso a paso</div>
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3.5vw,36px);letter-spacing:-.015em;margin:0 0 12px;">Cómo organizar el pedido de la peña</h2>
+          <p style="font-size:16px;line-height:1.65;color:var(--ink-70);margin:0 0 28px;max-width:62ch;">En cuatro pasos, y con una persona del taller contigo de principio a fin. Te recomendamos pedirlas con una o dos semanas de antelación, aunque muchas veces podemos hacerlas en menos tiempo.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(20px,3vw,40px);">
+            <sc-for list="{{ penasSteps }}" as="st" hint-placeholder-count="4">
+              <div>
+                <div style="font-family:var(--font-display);font-weight:600;font-size:52px;color:var(--bone);line-height:1;margin-bottom:8px;-webkit-text-stroke:1px var(--line-strong);">{{ st.n }}</div>
+                <div style="width:44px;height:3px;background:var(--primary);border-radius:var(--r-pill);margin-bottom:18px;"></div>
+                <h3 style="font-family:var(--font-display);font-weight:600;font-size:22px;margin:0 0 10px;">{{ st.t }}</h3>
+                <div style="font-size:15px;line-height:1.6;color:var(--ink-70);">{{ st.d }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="margin-bottom:clamp(48px,7vw,88px);background:var(--bone);border-radius:var(--r-lg);padding:clamp(28px,4vw,48px);">
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3.5vw,36px);letter-spacing:-.015em;margin:0 0 12px;">Qué personalizamos para tu peña</h2>
+          <p style="font-size:16px;line-height:1.65;color:var(--ink-70);margin:0 0 14px;max-width:62ch;">Camisetas de manga corta, de cuello en V y oversize, sudaderas con y sin capucha, chaquetas y softshell, en el color de tu peña. Las camisetas son de algodón 100% orgánico. Tienes todos los modelos, con sus tallas y colores, en el catálogo.</p>
+          <p style="font-size:16px;line-height:1.65;color:var(--ink-70);margin:0 0 24px;max-width:62ch;">Y no solo ropa: también personalizamos pañuelos, gorras, vasos, termos, cinturones y prácticamente cualquier artículo. Pregúntanos por lo que necesites.</p>
+          <a href="/catalogo/" sc-camel-on-click="{{ goEstrella }}" style="cursor:pointer;font-size:15px;font-weight:600;color:var(--primary-dark);text-decoration:none;border-bottom:2px solid var(--primary);padding-bottom:2px;">Ver el catálogo →</a>
+        </div>
+
+        <div style="max-width:760px;margin:0 auto clamp(48px,7vw,88px);">
+          <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--primary-dark);margin-bottom:12px;">Preguntas frecuentes</div>
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3.5vw,36px);letter-spacing:-.015em;margin:0 0 12px;margin-bottom:28px;">Lo que más nos preguntan las peñas</h2>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <sc-for list="{{ penasFaqs }}" as="f" hint-placeholder-count="6">
+              <div style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;">
+                <div sc-camel-on-click="{{ f.onToggle }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;cursor:pointer;">
+                  <h3 data-pregunta="" style="font-size:17px;font-weight:600;line-height:1.35;margin:0;">{{ f.q }}</h3>
+                  <span style="flex:0 0 auto;width:28px;height:28px;border-radius:var(--r-pill);background:var(--bone);color:var(--primary-dark);display:flex;align-items:center;justify-content:center;font-size:18px;">{{ f.sign }}</span>
+                </div>
+                <sc-if value="{{ f.isOpen }}" hint-placeholder-val="{{ false }}">
+                  <div data-respuesta="" style="padding:0 24px 22px;font-size:15px;line-height:1.65;color:var(--ink-70);max-width:60ch;">{{ f.a }}</div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <!-- Formulario presupuesto -->
+        <form sc-camel-on-submit="{{ submitPresupuestoPenas }}" style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(24px,4vw,48px);max-width:760px;margin:0 auto;box-shadow:var(--shadow);">
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3.5vw,34px);margin:0 0 6px;letter-spacing:-.015em;">Pide presupuesto</h2>
+          <p style="font-size:15px;color:var(--ink-70);margin:0 0 28px;">Cuéntanos los detalles y te respondemos en 24–48 h.</p>
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;">
+            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Nombre de contacto</label><input name="nombre" required="{{ isRequired }}" maxlength="100" placeholder="Tu nombre" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Nombre de la peña</label><input name="organizacion" maxlength="150" placeholder="Peña, cuadrilla, comisión de fiestas…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Email</label><input type="email" name="email" required="{{ isRequired }}" maxlength="254" placeholder="tu@email.com" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+            <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Teléfono de contacto</label><input type="tel" name="telefono" maxlength="30" placeholder="+34 600 00 00 00" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></div>
+          </div>
+          <div style="margin-top:18px;"><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Cuéntanos tu proyecto</label><textarea name="mensaje" maxlength="2000" rows="4" placeholder="Cuántos sois, fecha de la fiesta, prendas, diseño aproximado, tallas…" style="width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;background:var(--bg);outline:none;resize:vertical;" style-focus="border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,100,44,.15);"></textarea></div>
+          <label style="display:flex;gap:10px;align-items:flex-start;margin-top:20px;font-family:var(--font-sans);font-size:13px;line-height:1.5;color:var(--ink-70);cursor:pointer;">
+            <input type="checkbox" name="privacidad" required="{{ isRequired }}" style="margin-top:3px;flex:0 0 auto;width:16px;height:16px;accent-color:var(--primary);cursor:pointer;">
+            <span>He leído y acepto la <a href="/privacidad/" target="_blank" rel="noopener" style="color:var(--primary-dark);text-decoration:underline;">política de privacidad</a>. Waizu usará mis datos solo para responder a esta solicitud; el mensaje se envía mediante el servicio FormSubmit.</span>
+          </label>
+          <button type="submit" style="margin-top:24px;padding:15px 32px;background:var(--primary-cta);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:16px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Pide presupuesto</button>
+        </form>
+        <div style="margin-top:24px;text-align:center;">
+          <a href="https://wa.me/34614153385?text=Hola%20Waizu%2C%20quiero%20camisetas%20para%20mi%20pe%C3%B1a.%20Somos%20__%20personas%20y%20la%20fiesta%20es%20el%20__." target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;padding:14px 26px;background:transparent;border:1.5px solid var(--line-strong);border-radius:var(--r);color:var(--ink);font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="border-color:var(--ink);">Prefiero escribir por WhatsApp</a>
+        </div>
       </section></sc-if>
     <sc-if value="{{ isComo }}" hint-placeholder-val="{{ false }}"><section style="max-width:var(--maxw);margin:0 auto;padding:clamp(40px,6vw,80px) clamp(16px,4vw,40px) clamp(48px,7vw,96px);">
         <div style="max-width:620px;margin:0 auto 56px;text-align:center;">
@@ -1192,6 +1308,7 @@ class Component extends DCLogic {
     pdQty: 1,
     pdImage: 0,
     faqOpen: 0,
+    penasFaqOpen: 0,
     isCompact: (typeof window !== 'undefined' && window.innerWidth < 1024),
     mobileMenuOpen: false,
     isShort: (typeof window !== 'undefined' && window.innerHeight < 700),
@@ -1335,6 +1452,16 @@ class Component extends DCLogic {
     { q:'¿Hacéis pedidos para colegios y eventos?', a:'Sí. Trabajamos con colegios, AMPAs, peñas, eventos y empresas. Pídenos presupuesto y te preparamos una propuesta a medida.' },
     { q:'¿Solo trabajáis con textiles?', a:'No. Además de ropa, personalizamos gorras, tazas, llaveros, alfombras, gafas, cinturones, cantimploras, termos, timbres para bici, bolsas de papel, bolsas de cuerdas, delantales y muchos más objetos. Si tienes una idea para un artículo que no ves aquí, escríbenos: casi siempre encontramos la forma de hacerlo.' },
     { q:'¿Cómo cuido la prenda para que dure?', a:'Lavado del revés a 30°, sin secadora y sin plancha directa sobre el diseño. Así la impresión y la fibra aguantan mucho más.' },
+  ];
+
+  /* Página de peñas (/camisetas-para-penas-y-fiestas/). Datos confirmados por Javi el 14/10/2026. */
+  penasFaqs = [
+    { q:'¿Hay pedido mínimo?', a:'No. Hacemos desde una sola prenda, seas una peña, una empresa o un particular. Cuantas más prendas pidáis, menor es el precio de cada una.' },
+    { q:'¿Con cuánto tiempo hay que pedirlas?', a:'Te recomendamos pedirlas con una o dos semanas de antelación. Si vas con prisa, consúltanos: muchas veces podemos hacerlas en menos tiempo, según el volumen de trabajo que tengamos. Te confirmamos el plazo exacto al cerrar el diseño.' },
+    { q:'¿Se puede poner el nombre de cada uno?', a:'Sí. Estampamos por delante y por detrás: por ejemplo, el escudo de la peña en el pecho y, en la espalda, el nombre o el mote de cada uno, o lo que queráis.' },
+    { q:'¿Podemos ver cómo queda antes de hacer todas?', a:'Sí. Te enviamos una previsualización del diseño para ajustarlo contigo y, si lo pides, hacemos una prenda de prueba antes de producir el pedido completo.' },
+    { q:'¿Cuánto cuestan?', a:'Depende de la prenda, de la técnica y de la cantidad: cuantas más prendas, menor es el precio de cada una. Cuéntanos qué necesitáis y te enviamos un presupuesto claro en 24–48 h.' },
+    { q:'¿Enviáis fuera de Guadalajara?', a:'Sí, enviamos a toda España. También puedes recogerlas en nuestro taller de la Calle La Carrera 63, de lunes a viernes de 9:00 a 14:00, y los fines de semana con aviso previo.' },
   ];
 
   steps = [
@@ -1823,7 +1950,7 @@ class Component extends DCLogic {
               next:(e)=>this._shiftPhoto(e,key,1),
             };
           });
-          return { name:g.name, meta: g.items.length ? g.items.length+' productos · '+g.meta : g.meta,
+          return { esPenas: open && g.id==='penas', name:g.name, meta: g.items.length ? g.items.length+' productos · '+g.meta : g.meta,
             isOpen:open, isEmpty: open && g.items.length===0, sign: open?'−':'+',
             headBg: open ? 'var(--bone)' : 'transparent',
             products, onToggle:()=>this.setState(st=>({ catOpen: st.catOpen===g.id ? null : g.id })) };
@@ -1835,7 +1962,7 @@ class Component extends DCLogic {
         { name:'Valento', logo:'assets/859eccc1-c386-4109-ab5c-d71765e1fcdc.png', url:'https://www.valento.es/' },
         { name:'Roly', logo:'assets/54e274ef-20ac-457e-b811-829b6f312ca1.svg', url:'https://roly.eu/es' },
       ],
-      isComo: s.view==='como', isFaq: s.view==='faq', isContacto: s.view==='contacto',
+      isPenas: s.view==='penas', isComo: s.view==='como', isFaq: s.view==='faq', isContacto: s.view==='contacto',
       isLegal: s.view==='legal',
       legalTitle: (this.legalDocs[s.legalDoc]||this.legalDocs.privacidad).title,
       legalBlocks: ((this.legalDocs[s.legalDoc]||this.legalDocs.privacidad).blocks||[]).map(([k,text])=>({ text, isHead:k==='h', isBody:k==='b', isPair:k==='p', isItem:k==='li' })),
@@ -1916,6 +2043,35 @@ class Component extends DCLogic {
         { t:'Diseño incluido', d:'Te ayudamos a preparar el diseño y la ubicación de la estampación sin coste de maqueta.' },
         { t:'Plazos para tu evento', d:'Planificamos la producción para que llegue a tiempo a tu fecha clave.' },
       ],
+
+      // ===== Peñas =====
+      penasStats: [
+        { n:'Desde 1', label:'prenda, sin pedido mínimo' },
+        { n:'24–48 h', label:'respuesta a presupuestos' },
+        { n:'+200', label:'encargos para grupos' },
+      ],
+      penasBenefits: [
+        { t:'Sin pedido mínimo', d:'Desde una sola camiseta. Cuantas más prendas pidáis, menor es el precio de cada una.' },
+        { t:'Delante y detrás', d:'El escudo de la peña en el pecho y, en la espalda, el nombre o el mote de cada uno.' },
+        { t:'Prenda de prueba', d:'Si lo pides, hacemos una prenda de prueba para que veáis cómo queda antes de producir el resto.' },
+        { t:'Diseño incluido', d:'Te ayudamos a preparar el diseño y la ubicación del estampado sin coste de maqueta.' },
+      ],
+      penasTecnicas: [
+        { t:'Serigrafía', cuando:'Para tiradas medias y grandes', d:'Ideal cuando el diseño tiene pocos colores. Da colores intensos y un estampado muy resistente.' },
+        { t:'DTF', cuando:'Para tiradas cortas y piezas únicas', d:'Color ilimitado, degradados y fotos, sin mínimos altos. Ideal para diseños con muchos colores o pocas prendas.' },
+      ],
+      penasSteps: [
+        { n:'01', t:'Elige prenda y color', d:'Camiseta, sudadera, chaqueta o softshell, en el color de la peña. Tienes todos los modelos en el catálogo.' },
+        { n:'02', t:'Mándanos el diseño', d:'Por WhatsApp o con el formulario. Te preparamos una previsualización y la ajustamos contigo.' },
+        { n:'03', t:'Junta las tallas', d:'Haz una lista con la talla de cada uno y, si queréis, el nombre o mote que irá en la espalda.' },
+        { n:'04', t:'Estampado y entrega', d:'Estampamos a mano en el taller. Las recoges de lunes a viernes de 9:00 a 14:00 (fines de semana, con aviso previo) o te las enviamos.' },
+      ],
+      penasFaqs: this.penasFaqs.map((f,i) => ({
+        ...f, isOpen: todoAbierto || s.penasFaqOpen === i, onToggle: () => this.setState(st=>({ penasFaqOpen: st.penasFaqOpen===i ? -1 : i })),
+        sign: s.penasFaqOpen === i ? '−' : '+',
+      })),
+      goPenas: this._enlace(() => this.go('penas')),
+      submitPresupuestoPenas: (e) => this.submitForm(e, 'Nueva solicitud de presupuesto de peña — Waizu'),
 
       // ===== Contacto =====
       contactInfo: [

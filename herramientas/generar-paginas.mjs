@@ -94,8 +94,17 @@ for (const p of paginas) {
     raiz.querySelectorAll('*').forEach((n) => {
       for (const a of [...n.attributes]) if (/^(style-|sc-|hint-|ref$)/.test(a.name)) n.removeAttribute(a.name);
     });
+    // Preguntas frecuentes propias de la sección (p. ej. la de peñas): <… data-pregunta> y
+    // <… data-respuesta> dentro de la misma tarjeta. Van a los datos estructurados.
+    const preguntas = [...raiz.querySelectorAll('[data-pregunta]')].map((q) => {
+      let tarjeta = q.parentElement;
+      while (tarjeta && !tarjeta.querySelector('[data-respuesta]')) tarjeta = tarjeta.parentElement;
+      const r = tarjeta && tarjeta.querySelector('[data-respuesta]');
+      return { q: q.textContent.trim(), a: r ? r.textContent.trim() : '' };
+    });
     return {
       html: raiz.innerHTML,
+      preguntas,
       h1: [...raiz.querySelectorAll('h1')].map((h) => h.textContent.trim()),
       texto: raiz.textContent.replace(/\s+/g, ' ').trim().length,
     };
@@ -109,7 +118,7 @@ servidor.close();
 const escapar = (t) => t.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const nodo = (tipo) => grafo.find((n) => n['@type'] === tipo);
 
-function datosEstructurados(p) {
+function datosEstructurados(p, copia) {
   const url = DOMINIO + p.ruta;
   const webPage = {
     '@type': p.vista === 'contacto' ? 'ContactPage' : p.vista === 'faq' ? 'FAQPage' : 'WebPage',
@@ -121,6 +130,14 @@ function datosEstructurados(p) {
     isPartOf: { '@id': `${DOMINIO}/#web` },
     about: { '@id': `${DOMINIO}/#negocio` },
   };
+  if (p.vista !== 'faq' && copia.preguntas.length) {
+    webPage['@type'] = 'FAQPage';
+    webPage.mainEntity = copia.preguntas.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    }));
+  }
   if (p.vista === 'home') return grafo.filter((n) => n['@type'] !== 'FAQPage');
   if (p.vista === 'contacto') return [nodo('ClothingStore'), webPage];
   if (p.vista === 'faq') {
@@ -140,6 +157,7 @@ for (const p of paginas) {
   const copia = copias[p.ruta];
   if (copia.h1.length !== 1) aviso(p.ruta, `tiene ${copia.h1.length} H1 (debe tener uno)`);
   if (copia.texto < 200) aviso(p.ruta, 'la copia estática casi no tiene texto');
+  for (const { q, a } of copia.preguntas) if (!q || !a) aviso(p.ruta, `pregunta frecuente incompleta: «${q}»`);
   if (p.titulo.length > 60) aviso(p.ruta, `título de ${p.titulo.length} caracteres (máximo 60)`);
   if (p.descripcion.length > 155) aviso(p.ruta, `descripción de ${p.descripcion.length} caracteres (máximo 155)`);
 
@@ -153,7 +171,7 @@ for (const p of paginas) {
   html = sustituir(html, /<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${url}">`, p.ruta, 'og:url');
   html = sustituir(html, /<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${escapar(p.titulo)}">`, p.ruta, 'og:title');
   html = sustituir(html, /<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${escapar(p.descripcion)}">`, p.ruta, 'og:description');
-  const ld = JSON.stringify({ '@context': 'https://schema.org', '@graph': datosEstructurados(p) }, null, 1);
+  const ld = JSON.stringify({ '@context': 'https://schema.org', '@graph': datosEstructurados(p, copia) }, null, 1);
   html = html.replace(/(<script type="application\/ld\+json">)[\s\S]*?(<\/script>)/, () => `<script type="application/ld+json">\n${ld}\n</script>`);
   html = sustituir(html, /<body>/, () => `<body>\n<div id="waizu-prerender"><!-- Copia estática generada por herramientas/generar-paginas.mjs. No editar aquí: se cambia en index.html. -->${copia.html}</div>`, p.ruta, '<body>');
 
