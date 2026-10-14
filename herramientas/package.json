@@ -1,0 +1,12 @@
+{
+  "name": "waizu-herramientas",
+  "private": true,
+  "type": "module",
+  "description": "Genera las páginas de waizu.es antes de publicarlas (ver generar-paginas.mjs).",
+  "scripts": {
+    "generar": "node generar-paginas.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.63.0"
+  }
+}

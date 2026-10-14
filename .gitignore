@@ -5,3 +5,6 @@ node_modules/
 # Herramientas locales (no se publican en la web)
 .claude/
 serve.js
+
+# Web generada por herramientas/generar-paginas.mjs (no se sube)
+_site/
