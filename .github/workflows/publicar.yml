@@ -1,0 +1,64 @@
+# Publica waizu.es en GitHub Pages.
+# En cada cambio de master genera una página por sección (herramientas/generar-paginas.mjs)
+# y publica el resultado. En los pull requests solo comprueba que se generan bien.
+# Requisito: Settings → Pages → Build and deployment → Source: «GitHub Actions».
+name: Publicar web
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publicar-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # para la fecha de la última modificación en el sitemap
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: herramientas/package-lock.json
+      - name: Instalar herramientas
+        working-directory: herramientas
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+      - name: Generar páginas
+        run: node herramientas/generar-paginas.mjs _site
+      - name: Guardar la web generada (pull requests)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-generada
+          path: _site
+          retention-days: 7
+      - name: Preparar la publicación
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  publicar:
+    if: github.event_name != 'pull_request'
+    needs: generar
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.publicacion.outputs.page_url }}
+    steps:
+      - id: publicacion
+        uses: actions/deploy-pages@v4
