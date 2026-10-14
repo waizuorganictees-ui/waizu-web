@@ -67,6 +67,14 @@
     "longitude": -3.16052
    },
    "hasMap": "https://maps.google.com/?cid=14461885755637972771",
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+     "opens": "09:00",
+     "closes": "14:00"
+    }
+   ],
    "sameAs": [
     "https://www.instagram.com/waizu_organictees/",
     "https://maps.google.com/?cid=14461885755637972771"
@@ -1772,7 +1780,7 @@ class Component extends DCLogic {
         { icon:'✆', label:'Teléfono', value:'+34 614 15 33 85' },
         { icon:'@', label:'Email', value:'waizuorganictees@gmail.com' },
         { icon:'◈', label:'Instagram', value:'@waizu_organictees', link:'https://www.instagram.com/waizu_organictees/' },
-        { icon:'◷', label:'Horario', value:'De 9 a 14' },
+        { icon:'◷', label:'Horario', value:'Lunes a viernes, de 9:00 a 14:00. Fines de semana, con aviso previo.' },
       ].map(c => ({ ...c, hasLink: !!c.link, noLink: !c.link })),
 
     };
