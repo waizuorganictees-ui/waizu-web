@@ -56,6 +56,12 @@
    "descripcion": "Camisetas y sudaderas para tu peña, desde una sola prenda, estampadas a mano con serigrafía o DTF en Guadalajara (España). Diseño incluido."
   },
   {
+   "ruta": "/serigrafia-y-dtf-en-guadalajara/",
+   "vista": "taller",
+   "titulo": "Serigrafía y DTF en Guadalajara (España) | Taller Waizu",
+   "descripcion": "Taller de serigrafía y DTF en el centro de Guadalajara (España), en la Calle La Carrera 63. Ropa y artículos personalizados a mano desde una unidad."
+  },
+  {
    "ruta": "/como-funciona/",
    "vista": "como",
    "titulo": "Cómo funciona: de tu idea a tu camiseta | Waizu",
@@ -153,6 +159,14 @@
     {
      "@type": "City",
      "name": "Alcalá de Henares"
+    },
+    {
+     "@type": "AdministrativeArea",
+     "name": "Castilla-La Mancha"
+    },
+    {
+     "@type": "AdministrativeArea",
+     "name": "Comunidad de Madrid"
     }
    ],
    "geo": {
@@ -1108,6 +1122,81 @@
           <a href="https://wa.me/34614153385?text=Hola%20Waizu%2C%20quiero%20camisetas%20para%20mi%20pe%C3%B1a.%20Somos%20__%20personas%20y%20la%20fiesta%20es%20el%20__." target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;padding:14px 26px;background:transparent;border:1.5px solid var(--line-strong);border-radius:var(--r);color:var(--ink);font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="border-color:var(--ink);">Prefiero escribir por WhatsApp</a>
         </div>
       </section></sc-if>
+    <sc-if value="{{ isTaller }}" hint-placeholder-val="{{ false }}"><section style="background:var(--bone);">
+        <div style="max-width:var(--maxw);margin:0 auto;padding:clamp(48px,7vw,96px) clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,4vw,64px);align-items:center;">
+          <div>
+            <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--primary-dark);margin-bottom:14px;">Nuestro taller</div>
+            <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(34px,5.5vw,58px);line-height:1.05;letter-spacing:-.02em;margin:0 0 18px;text-wrap:balance;">Taller de serigrafía y DTF en Guadalajara (España)</h1>
+            <p style="font-size:18px;line-height:1.6;color:var(--ink-70);margin:0 0 28px;max-width:48ch;">Waizu es un taller de ropa personalizada en la Calle La Carrera 63, en el centro de Guadalajara. Aquí estampamos a mano camisetas, sudaderas, chaquetas y otros artículos con serigrafía y DTF, desde una sola prenda hasta pedidos para peñas, colegios y empresas. Puedes recoger tu pedido en el taller o te lo enviamos a cualquier punto de España.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:24px;">
+              <sc-for list="{{ tallerStats }}" as="st" hint-placeholder-count="3">
+                <div><div style="font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--primary-dark);">{{ st.n }}</div><div style="font-size:13px;color:var(--ink-70);">{{ st.label }}</div></div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="aspect-ratio:4/3;border-radius:var(--r-lg);overflow:hidden;background:var(--surface);">
+            <picture style="display:contents;"><source type="image/webp" srcset="assets/01fd08d9-b74a-4f26-8e69-8b66c438dfce-480.webp 480w, assets/01fd08d9-b74a-4f26-8e69-8b66c438dfce-811.webp 811w" sizes="(max-width: 700px) 100vw, 50vw"><img src="assets/01fd08d9-b74a-4f26-8e69-8b66c438dfce.jpg" alt="Impresión DTF a mano en el taller Waizu" width="811" height="866" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></picture>
+          </div>
+        </div>
+      </section>
+      <section style="max-width:var(--maxw);margin:0 auto;padding:clamp(48px,7vw,88px) clamp(16px,4vw,40px);">
+        <div style="margin-bottom:clamp(48px,7vw,88px);">
+          <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--primary-dark);margin-bottom:12px;">Qué hacemos</div>
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3.5vw,36px);letter-spacing:-.015em;margin:0 0 12px;">Qué hacemos en el taller</h2>
+          <p style="font-size:16px;line-height:1.65;color:var(--ink-70);margin:0 0 28px;max-width:62ch;">Todo se prepara y se estampa a mano aquí, en Guadalajara. Te recomendamos la técnica que mejor encaja con tu diseño y con el número de prendas.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
+            <sc-for list="{{ tallerServicios }}" as="b" hint-placeholder-count="4">
+              <div style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;">
+                <div style="width:40px;height:40px;border-radius:var(--r-pill);background:var(--bone);display:flex;align-items:center;justify-content:center;color:var(--primary-dark);margin-bottom:16px;font-size:18px;">✦</div>
+                <h3 style="font-weight:600;font-size:17px;margin:0 0 6px;">{{ b.t }}</h3>
+                <div style="font-size:14px;line-height:1.55;color:var(--ink-70);">{{ b.d }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="margin-bottom:clamp(48px,7vw,88px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
+          <div style="background:var(--bone);border-radius:var(--r-lg);padding:clamp(28px,4vw,48px);">
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3.5vw,36px);letter-spacing:-.015em;margin:0 0 12px;">Dónde estamos y horario</h2>
+            <p style="font-size:16px;line-height:1.65;color:var(--ink-70);margin:0 0 14px;">Calle La Carrera 63, 19001 Guadalajara (España), en el centro de la ciudad.</p>
+            <p style="font-size:16px;line-height:1.65;color:var(--ink-70);margin:0 0 14px;">Recogida en el taller de lunes a viernes, de 9:00 a 14:00. Los fines de semana, con aviso previo.</p>
+            <p style="font-size:16px;line-height:1.65;color:var(--ink-70);margin:0 0 24px;">Teléfono y WhatsApp: <a href="tel:+34614153385" style="color:inherit;font-weight:600;">614 15 33 85</a></p>
+            <a href="https://maps.google.com/?cid=14461885755637972771" target="_blank" rel="noopener" style="cursor:pointer;font-size:15px;font-weight:600;color:var(--primary-dark);text-decoration:none;border-bottom:2px solid var(--primary);padding-bottom:2px;">Cómo llegar en Google Maps →</a>
+          </div>
+          <div style="background:var(--bone);border-radius:var(--r-lg);padding:clamp(28px,4vw,48px);">
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3.5vw,36px);letter-spacing:-.015em;margin:0 0 12px;">A dónde llegamos</h2>
+            <p style="font-size:16px;line-height:1.65;color:var(--ink-70);margin:0 0 14px;">Trabajamos para Guadalajara capital y su provincia, para toda Castilla-La Mancha y para la Comunidad de Madrid, con el Corredor del Henares a un paso, de Azuqueca de Henares a Alcalá de Henares.</p>
+            <p style="font-size:16px;line-height:1.65;color:var(--ink-70);margin:0;">¿Estás más lejos? Te lo mandamos a casa, estés donde estés de España.</p>
+          </div>
+        </div>
+
+        <div style="max-width:760px;margin:0 auto clamp(48px,7vw,88px);">
+          <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--primary-dark);margin-bottom:12px;">Preguntas frecuentes</div>
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3.5vw,36px);letter-spacing:-.015em;margin:0 0 12px;margin-bottom:28px;">Lo que más nos preguntan del taller</h2>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <sc-for list="{{ tallerFaqs }}" as="f" hint-placeholder-count="6">
+              <div style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;">
+                <div sc-camel-on-click="{{ f.onToggle }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;cursor:pointer;">
+                  <h3 data-pregunta="" style="font-size:17px;font-weight:600;line-height:1.35;margin:0;">{{ f.q }}</h3>
+                  <span style="flex:0 0 auto;width:28px;height:28px;border-radius:var(--r-pill);background:var(--bone);color:var(--primary-dark);display:flex;align-items:center;justify-content:center;font-size:18px;">{{ f.sign }}</span>
+                </div>
+                <sc-if value="{{ f.isOpen }}" hint-placeholder-val="{{ false }}">
+                  <div data-respuesta="" style="padding:0 24px 22px;font-size:15px;line-height:1.65;color:var(--ink-70);max-width:60ch;">{{ f.a }}</div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background:var(--ink);border-radius:var(--r-lg);padding:clamp(32px,5vw,64px);text-align:center;color:#fff;">
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(26px,3.5vw,40px);margin:0 0 14px;letter-spacing:-.015em;">¿Tienes una idea?</h2>
+          <p style="font-size:17px;color:rgba(255,255,255,.78);margin:0 auto 28px;max-width:42ch;">Cuéntanosla por WhatsApp o pásate por el taller. Te respondemos en 24–48 h.</p>
+          <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+            <a href="https://wa.me/34614153385?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Waizu.%20Estoy%20interesado%20en%20pedir%20presupuesto.%20Mi%20proyecto%20es%3A%20" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;padding:15px 28px;background:var(--primary-cta);border:none;border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="background:var(--primary-dark);">Escríbenos por WhatsApp</a>
+            <a href="/catalogo/" sc-camel-on-click="{{ goCatalogoTaller }}" style="display:inline-block;text-decoration:none;padding:15px 28px;background:transparent;border:1px solid rgba(255,255,255,.4);border-radius:var(--r);color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:600;cursor:pointer;" style-hover="border-color:#fff;">Ver catálogo</a>
+          </div>
+        </div>
+      </section></sc-if>
     <sc-if value="{{ isComo }}" hint-placeholder-val="{{ false }}"><section style="max-width:var(--maxw);margin:0 auto;padding:clamp(40px,6vw,80px) clamp(16px,4vw,40px) clamp(48px,7vw,96px);">
         <div style="max-width:620px;margin:0 auto 56px;text-align:center;">
           <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--primary-dark);margin-bottom:12px;">Cómo funciona</div>
@@ -1309,6 +1398,7 @@ class Component extends DCLogic {
     pdImage: 0,
     faqOpen: 0,
     penasFaqOpen: 0,
+    tallerFaqOpen: 0,
     isCompact: (typeof window !== 'undefined' && window.innerWidth < 1024),
     mobileMenuOpen: false,
     isShort: (typeof window !== 'undefined' && window.innerHeight < 700),
@@ -1462,6 +1552,16 @@ class Component extends DCLogic {
     { q:'¿Podemos ver cómo queda antes de hacer todas?', a:'Sí. Te enviamos una previsualización del diseño para ajustarlo contigo y, si lo pides, hacemos una prenda de prueba antes de producir el pedido completo.' },
     { q:'¿Cuánto cuestan?', a:'Depende de la prenda, de la técnica y de la cantidad: cuantas más prendas, menor es el precio de cada una. Cuéntanos qué necesitáis y te enviamos un presupuesto claro en 24–48 h.' },
     { q:'¿Enviáis fuera de Guadalajara?', a:'Sí, enviamos a toda España. También puedes recogerlas en nuestro taller de la Calle La Carrera 63, de lunes a viernes de 9:00 a 14:00, y los fines de semana con aviso previo.' },
+  ];
+
+  /* Página del taller (/serigrafia-y-dtf-en-guadalajara/). Datos confirmados por Javi (13 y 14/10/2026). */
+  tallerFaqs = [
+    { q:'¿Dónde está el taller?', a:'En la Calle La Carrera 63, 19001 Guadalajara (España), en el centro de la ciudad.' },
+    { q:'¿Puedo pasar a recoger mi pedido?', a:'Sí. Puedes recogerlo en el taller de lunes a viernes, de 9:00 a 14:00. Los fines de semana también, avisándonos antes.' },
+    { q:'¿Hacéis una sola prenda?', a:'Sí, no hay pedido mínimo. Personalizamos desde una sola prenda o artículo, y cuantas más unidades pidas, menor es el precio de cada una.' },
+    { q:'¿Cuánto tardáis?', a:'Depende del volumen de trabajo que tengamos. Te recomendamos encargarlo con una o dos semanas de antelación, aunque muchas veces podemos hacerlo en menos tiempo. Te confirmamos el plazo exacto al cerrar el diseño.' },
+    { q:'¿Enviáis fuera de Guadalajara?', a:'Sí, enviamos a cualquier punto de España.' },
+    { q:'¿Cómo pido presupuesto?', a:'Por WhatsApp en el 614 15 33 85, con el formulario de la web, por email o pasando por el taller. Te respondemos en 24–48 h.' },
   ];
 
   steps = [
@@ -1962,7 +2062,7 @@ class Component extends DCLogic {
         { name:'Valento', logo:'assets/859eccc1-c386-4109-ab5c-d71765e1fcdc.png', url:'https://www.valento.es/' },
         { name:'Roly', logo:'assets/54e274ef-20ac-457e-b811-829b6f312ca1.svg', url:'https://roly.eu/es' },
       ],
-      isPenas: s.view==='penas', isComo: s.view==='como', isFaq: s.view==='faq', isContacto: s.view==='contacto',
+      isPenas: s.view==='penas', isTaller: s.view==='taller', isComo: s.view==='como', isFaq: s.view==='faq', isContacto: s.view==='contacto',
       isLegal: s.view==='legal',
       legalTitle: (this.legalDocs[s.legalDoc]||this.legalDocs.privacidad).title,
       legalBlocks: ((this.legalDocs[s.legalDoc]||this.legalDocs.privacidad).blocks||[]).map(([k,text])=>({ text, isHead:k==='h', isBody:k==='b', isPair:k==='p', isItem:k==='li' })),
@@ -2003,6 +2103,8 @@ class Component extends DCLogic {
         { label:'Trabajos realizados', href:this._rutaDe('works'), onClick:this._enlace(()=>this.go('works')) },
         { label:'Grupos grandes', href:this._rutaDe('colegios'), onClick:this._enlace(()=>this.go('colegios')) },
         { label:'Cómo funciona', href:this._rutaDe('como'), onClick:this._enlace(()=>this.go('como')) },
+        { label:'Camisetas para peñas', href:this._rutaDe('penas'), onClick:this._enlace(()=>this.go('penas')) },
+        { label:'Nuestro taller', href:this._rutaDe('taller'), onClick:this._enlace(()=>this.go('taller')) },
       ],
       footerLegal: [
         { label:'Términos y condiciones', href:this._rutaDe('legal','terminos'), onClick:this._enlace(()=>this.goLegal('terminos')) },
@@ -2072,6 +2174,24 @@ class Component extends DCLogic {
       })),
       goPenas: this._enlace(() => this.go('penas')),
       submitPresupuestoPenas: (e) => this.submitForm(e, 'Nueva solicitud de presupuesto de peña — Waizu'),
+
+      // ===== Taller =====
+      tallerStats: [
+        { n:'Desde 1', label:'prenda, sin pedido mínimo' },
+        { n:'24–48 h', label:'respuesta a presupuestos' },
+        { n:'9–14 h', label:'recogida de lunes a viernes' },
+      ],
+      tallerServicios: [
+        { t:'Serigrafía', d:'Para tiradas medias y grandes con pocos colores. Colores intensos y un estampado muy resistente.' },
+        { t:'DTF', d:'Color ilimitado, degradados y fotos, sin mínimos altos. Ideal para tiradas cortas y piezas únicas.' },
+        { t:'Diseño incluido', d:'Te ayudamos a preparar el diseño y la ubicación del estampado sin coste de maqueta.' },
+        { t:'Mucho más que ropa', d:'Además de camisetas, sudaderas y chaquetas, personalizamos gorras, tazas, llaveros, termos, bolsas, delantales y muchos más artículos.' },
+      ],
+      tallerFaqs: this.tallerFaqs.map((f,i) => ({
+        ...f, isOpen: todoAbierto || s.tallerFaqOpen === i, onToggle: () => this.setState(st=>({ tallerFaqOpen: st.tallerFaqOpen===i ? -1 : i })),
+        sign: s.tallerFaqOpen === i ? '−' : '+',
+      })),
+      goCatalogoTaller: this._enlace(() => this.go('estrella')),
 
       // ===== Contacto =====
       contactInfo: [
