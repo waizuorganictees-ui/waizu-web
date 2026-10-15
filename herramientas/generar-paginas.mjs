@@ -139,7 +139,7 @@ function datosEstructurados(p, copia) {
     }));
   }
   if (p.vista === 'home') return grafo.filter((n) => n['@type'] !== 'FAQPage');
-  if (p.vista === 'contacto') return [nodo('ClothingStore'), webPage];
+  if (p.vista === 'contacto' || p.vista === 'taller') return [nodo('ClothingStore'), webPage];
   if (p.vista === 'faq') {
     const faq = nodo('FAQPage');
     return faq ? [{ ...webPage, ...faq, '@id': `${url}#pagina`, url, name: p.titulo }] : [webPage];
